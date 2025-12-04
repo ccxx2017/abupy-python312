@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: abupy
+Version: 0.4.0
+Summary: Abu quant for Python 3.12+
+Author: Abu (Ported by CCXX)
+Platform: any
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scikit-learn
+Requires-Dist: statsmodels
+Requires-Dist: requests
+Requires-Dist: ipython
+Requires-Dist: tqdm
+Requires-Dist: beautifulsoup4
+Requires-Dist: sqlalchemy
+Requires-Dist: tables
+Requires-Dist: joblib
+Requires-Dist: yfinance
+Dynamic: author
+Dynamic: platform
+Dynamic: requires-dist
+Dynamic: summary

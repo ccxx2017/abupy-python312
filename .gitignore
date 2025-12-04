@@ -1,0 +1,26 @@
+﻿# Python 编译文件
+__pycache__/
+*.py[cod]
+*.class
+
+# C 扩展
+*.so
+
+# 虚拟环境 (假设你会创建 venv)
+.venv/
+env/
+.env
+
+# IDE 配置
+.idea/
+.vscode/
+
+# Jupyter Notebook 检查点
+.ipynb_checkpoints
+
+# Abupy 特有的数据存储目录 (量化数据很大，不要提交到git)
+gen/
+abupy_data/
+storage/
+cache/
+log/
