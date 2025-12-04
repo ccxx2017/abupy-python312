@@ -26,3 +26,5 @@ cache/
 log/
 
 abupy.egg-info/
+
+temp/
