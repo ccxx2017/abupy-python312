@@ -24,3 +24,5 @@ abupy_data/
 storage/
 cache/
 log/
+
+abupy.egg-info/
