@@ -35,7 +35,14 @@ class AbuFactorBuyBreak(AbuFactorBuyBase, BuyCallMixin):
             return None
 
         # 今天的收盘价格达到xd天内最高价格则符合买入条件
-        if today.close == self.kl_pd.close[self.today_ind - self.xd + 1:self.today_ind + 1].max():
+        # Debugging break strategy
+        past_data = self.kl_pd.close[self.today_ind - self.xd + 1:self.today_ind + 1]
+        max_price = past_data.max()
+        
+        # print(f"DEBUG: Break Check {today.date}: Close={today.close}, Max({self.xd})={max_price}")
+        
+        if today.close == max_price:
+            print(f"DEBUG: Break Signal! {today.date}: Close={today.close} == Max={max_price}")
             # 把突破新高参数赋值skip_days，这里也可以考虑make_buy_order确定是否买单成立，但是如果停盘太长时间等也不好
             self.skip_days = self.xd
             # 生成买入订单, 由于使用了今天的收盘价格做为策略信号判断，所以信号发出后，只能明天买

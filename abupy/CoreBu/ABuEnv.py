@@ -19,7 +19,6 @@ from os import path
 import numpy as np
 import pandas as pd
 
-from ..CoreBu.ABuFixes import six
 
 __author__ = '阿布'
 __weixin__ = 'abu_quant'
@@ -27,7 +26,7 @@ __weixin__ = 'abu_quant'
 """暂时支持windows和mac os，不是windows就是mac os（不使用Darwin做判断），linux下没有完整测试"""
 g_is_mac_os = platform.system().lower().find("windows") < 0 and sys.platform != "win32"
 """python版本环境，是否python3"""
-g_is_py3 = six.PY3
+g_is_py3 = True
 """ipython，是否ipython运行环境"""
 g_is_ipython = True
 """主进程pid，使用并行时由于ABuEnvProcess会拷贝主进程注册了的模块信息，所以可以用g_main_pid来判断是否在主进程"""
@@ -123,9 +122,9 @@ def str_is_cn(a_str):
         """
         to_unicode原始位置: UtilBu.ABuStrUtil，为保持env为最初初始化不引入其它模块，这里临时拷贝使用
         """
-        if isinstance(text, six.text_type):
+        if isinstance(text, str):
             return text
-        if not isinstance(text, (bytes, six.text_type)):
+        if not isinstance(text, (bytes, str)):
             raise TypeError('to_unicode must receive a bytes, str or unicode '
                             'object, got %s' % type(text).__name__)
         if encoding is None:
@@ -146,24 +145,12 @@ def str_is_cn(a_str):
     return is_cn_path
 
 
-root_drive = path.expanduser('~')
-# root_drive = os.path.join(root_drive, u'测试')
-# noinspection PyTypeChecker
+# Modified to use project root directly
+# root_drive = path.expanduser('~')
+# Use project root (abupy-python312)
+g_project_root = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../'))
+print(f"ABuEnv: Project root set to {g_project_root}")
 
-if str_is_cn(root_drive):
-    """
-        如果用户根目录使用了中文名称，择放弃使用公共缓存文件夹,
-        windows下可以使用中文用户名，这样会导致pandas读取，写入
-        csv，hdf5出现问题，所以一旦发现用户路径为中文路径，改变
-        缓存路径为abupy根代码路径
-    """
-    abupy_source_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(str(__file__))), os.path.pardir))
-    # 改变缓存路径为abupy根代码路径
-    root_drive = abupy_source_dir
-    print('root_drive is change to {}'.format(root_drive))
-
-"""abu数据缓存主目录文件夹"""
-g_project_root = path.join(root_drive, 'abu')
 """abu数据文件夹 ~/abu/data"""
 g_project_data_dir = path.join(g_project_root, 'data')
 """abu日志文件夹 ~/abu/log"""
@@ -187,6 +174,9 @@ _p_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)
 """使用书中相同的沙盒数据环境，RomDataBu/csv内置的金融时间序列文件"""
 # g_project_kl_df_data_example = os.path.join(_p_dir, 'RomDataBu/df_kl.h5')
 g_project_kl_df_data_example = os.path.join(_p_dir, 'RomDataBu/csv')
+
+"""CSV缓存数据文件夹"""
+g_project_kl_df_data_csv = path.join(g_project_data_dir, 'csv')
 # ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊ 数据目录 end ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 
 
@@ -224,9 +214,12 @@ class EMarketSourceType(Enum):
     """火币 比特币，莱特币"""
     E_MARKET_SOURCE_hb_tc = 200
 
+    """Tushare数据源"""
+    E_MARKET_SOURCE_tushare = 300
 
-"""默认设置数据源使用E_MARKET_SOURCE_bd"""
-g_market_source = EMarketSourceType.E_MARKET_SOURCE_bd
+
+"""默认设置数据源使用E_MARKET_SOURCE_tushare"""
+g_market_source = EMarketSourceType.E_MARKET_SOURCE_tushare
 
 """自定义的私有数据源类，默认None"""
 g_private_data_source = None

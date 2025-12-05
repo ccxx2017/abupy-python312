@@ -11,7 +11,7 @@ from fnmatch import fnmatch
 import numpy as np
 
 from ..CoreBu.ABuEnv import EMarketTargetType, EMarketSubType
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..UtilBu.ABuStrUtil import to_unicode
 from ..UtilBu.ABuLazyUtil import LazyFunc
 
@@ -32,9 +32,9 @@ def code_to_symbol(code, rs=True):
     if isinstance(code, Symbol):
         # code本身时symbol对象直接返回
         return code
-    if not isinstance(code, six.string_types):
-        # code必须是string_types
-        raise TypeError('code must be string_types!!!，{} : type is {}'.format(code, type(code)))
+    if not isinstance(code, str):
+        # code必须是str
+        raise TypeError('code must be str!!!，{} : type is {}'.format(code, type(code)))
 
     sub_market = None
     market = None

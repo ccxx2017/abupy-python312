@@ -9,7 +9,10 @@ import numpy as np
 import seaborn as sns
 
 from ..CoreBu import ABuEnv
-from ..ExtBu.empyrical import stats
+try:
+    import empyrical as stats
+except ImportError:
+    from ..ExtBu.empyrical import stats
 from ..MetricsBu.ABuMetricsBase import AbuMetricsBase, valid_check
 from ..UtilBu.ABuDTUtil import warnings_filter
 

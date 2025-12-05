@@ -14,7 +14,7 @@ from ..MarketBu import ABuIndustries
 from ..MarketBu.ABuSymbol import code_to_symbol
 from ..UtilBu.ABuDTUtil import catch_error
 from ..CoreBu import ABuEnv
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..UtilBu.ABuStrUtil import to_unicode
 from ..WidgetBu.ABuWGBase import WidgetBase, WidgetSearchBox
 
@@ -51,7 +51,7 @@ class WidgetStockInfo(WidgetBase):
         构建股票基本信息
         :param symbol_code: 字符串symbol eg usTSLA 或者 Symbol对象
         """
-        if isinstance(symbol_code, six.string_types):
+        if isinstance(symbol_code, str):
             symbol_code = code_to_symbol(symbol_code)
 
         # 类中的symbol对象为Symbol类对象，即包含市场，子市场等信息的对象

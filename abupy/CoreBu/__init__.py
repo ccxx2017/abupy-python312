@@ -38,7 +38,6 @@ __all__ = [
     'Parameter',
 
     'ThreadPoolExecutor',
-    'six',
     'zip',
     'xrange',
     'range',

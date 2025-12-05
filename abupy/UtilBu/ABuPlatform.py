@@ -126,12 +126,8 @@ def show_versions():
     deps_info = list()
     for (modname, ver_f) in deps_mod:
         try:
-            import imp
-            try:
-                mod = imp.load_module(modname, *imp.find_module(modname))
-            except ImportError:
-                import importlib
-                mod = importlib.import_module(modname)
+            import importlib
+            mod = importlib.import_module(modname)
             ver = ver_f(mod)
             deps_info.append((modname, ver))
         except:

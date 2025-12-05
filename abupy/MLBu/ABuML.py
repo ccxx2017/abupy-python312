@@ -24,7 +24,7 @@ from sklearn.preprocessing import label_binarize, StandardScaler, binarize
 from . import ABuMLExecute
 from .ABuMLCreater import AbuMLCreater
 from ..CoreBu import ABuEnv
-from ..CoreBu.ABuFixes import train_test_split, cross_val_score, mean_squared_error_scorer, six
+from ..CoreBu.ABuFixes import train_test_split, cross_val_score, mean_squared_error_scorer
 from ..UtilBu import ABuFileUtil
 from ..UtilBu.ABuProgress import AbuProgress
 from ..UtilBu.ABuDTUtil import warnings_filter
@@ -86,7 +86,7 @@ def entry_wrapper(support=(EMLFitType.E_FIT_CLF, EMLFitType.E_FIT_REG, EMLFitTyp
                 # 如果传递了fiter_type参数，pop出来
                 fiter_type = kwargs.pop('fiter_type')
                 # 如果传递的fiter_type参数是str，eg：'clf'， 转换为EMLFitType(fiter_type)
-                if isinstance(fiter_type, six.string_types):
+                if isinstance(fiter_type, str):
                     fiter_type = EMLFitType(fiter_type)
                 self.fiter_type = fiter_type
 
@@ -350,7 +350,7 @@ class AbuML(object):
         """
         self.estimator = AbuMLCreater()
         # 如果传递进来的是字符串类型，转换为EMLFitType
-        if isinstance(fiter_type, six.string_types):
+        if isinstance(fiter_type, str):
             fiter_type = EMLFitType(fiter_type)
         self.x = x
         self.y = y
@@ -1181,7 +1181,7 @@ class AbuML(object):
             self.fit(**kwargs)
 
         fiter = self.get_fiter()
-        if not isinstance(callback, six.string_types):
+        if not isinstance(callback, str):
             # callback必须是字符串类型
             self.log_func('callback must str, not {}'.format(type(callback)))
             return

@@ -28,3 +28,7 @@ log/
 abupy.egg-info/
 
 temp/
+
+.trae/
+.mypy_cache/
+.ruff_cache/

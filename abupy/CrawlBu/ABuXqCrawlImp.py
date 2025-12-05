@@ -15,7 +15,6 @@ from ..CoreBu import env
 from ..CoreBu.ABuFixes import map, reduce, filter
 from .ABuXqApi import BASE_XQ_HQ_URL
 from .ABuXqApi import BASE_XQ_STOCK_INFO
-from ..ExtBu import six
 
 __author__ = '小青蛙'
 __weixin__ = 'abu_quant'
@@ -42,7 +41,7 @@ def _xpath(content):
     return selector
 
 
-class BaseXQCrawlBrower(six.with_metaclass(ABCMeta, object)):
+class BaseXQCrawlBrower(metaclass=ABCMeta):
     """
     使用chrome浏览器的自动化测试驱动接口，获取网页数据
     """

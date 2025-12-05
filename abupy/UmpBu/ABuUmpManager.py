@@ -21,7 +21,7 @@ from ..UmpBu.ABuUmpMainWave import AbuUmpMainWave
 from ..UmpBu.ABuUmpMainBase import AbuUmpMainBase
 from ..CoreBu import ABuEnv
 # noinspection PyUnresolvedReferences
-from ..CoreBu.ABuFixes import filter, six
+from ..CoreBu.ABuFixes import filter
 
 __author__ = '阿布'
 __weixin__ = 'abu_quant'
@@ -40,7 +40,7 @@ def append_user_ump(ump, check=True):
     """
     if check:
         # 检测ump训练后的本地物理文件是否存在
-        if isinstance(ump, six.class_types):
+        if isinstance(ump, type):
             ump_cache_path = ump(predict=True).dump_file_fn()
         else:
             ump_cache_path = ump.dump_file_fn()

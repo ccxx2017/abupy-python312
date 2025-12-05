@@ -9,7 +9,7 @@ from collections import namedtuple
 import numpy as np
 import pandas as pd
 
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from .ABuMetricsBase import AbuMetricsBase
 
 __author__ = '阿布'
@@ -37,7 +37,7 @@ class AbuScoreTuple(namedtuple('AbuScoreTuple',
                 self.buy_factors, self.sell_factors, self.stock_picks)
 
 
-class AbuBaseScorer(six.with_metaclass(ABCMeta, object)):
+class AbuBaseScorer(metaclass=ABCMeta):
     """针对GridSearch的score_tuple_array进行评分抽象基类"""
 
     # noinspection PyUnresolvedReferences

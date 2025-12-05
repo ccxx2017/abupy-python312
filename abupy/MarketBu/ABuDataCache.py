@@ -185,7 +185,60 @@ def _load_kline_csv(date_key):
     csv_fn = os.path.join(csv_dir, date_key)
     df = load_df_csv(csv_fn)
     # 这里要把类型转换为time
-    df.index = pd.to_datetime(df.index)
+    try:
+        # Ensure index is treated as string first if it's mixed or numeric
+        # pd.to_datetime on numeric index might interpret as unix timestamp (ns)
+        if df.index.dtype.kind in 'iu': # int or uint
+            df.index = df.index.astype(str)
+        
+        # Explicitly handle YYYYMMDD int/str format if possible, or let pandas guess
+        # Try format YYYYMMDD first as that's what we use in cache keys and potentially saved
+        # Also common in CSV dump is YYYY-MM-DD
+        
+        # Debug: print first few indices
+        # logging.info(f"Index sample: {df.index[:5]}")
+        
+        try:
+             df.index = pd.to_datetime(df.index, format='%Y%m%d')
+        except (ValueError, TypeError):
+             try:
+                  df.index = pd.to_datetime(df.index, format='%Y-%m-%d')
+             except:
+                  # Fallback to standard guess or specific format
+                  df.index = pd.to_datetime(df.index)
+
+    except (ValueError, TypeError):
+        try:
+             # Try mixed format for pandas 2.0+
+             df.index = pd.to_datetime(df.index, format='mixed')
+        except:
+             # Fallback: coerce errors
+             df.index = pd.to_datetime(df.index, errors='coerce')
+             
+    # Fix: Ensure date column exists (required by many consumers like ABuDataSource)
+    if 'date' not in df.columns:
+        try:
+             # Index is now datetime (mostly), convert to YYYYMMDD int
+             # Handle NaT? astype(int) on NaT raises error?
+             # strftime on NaT raises error?
+             # We should handle it.
+             
+             # Create a series
+             dates = df.index.to_series()
+             # Format valid dates
+             # If index has NaT, strftime returns NaT? No, returns NaN for NaT in recent pandas?
+             # Or raises ValueError.
+             
+             # Use apply is safer
+             def _fmt(x):
+                 try:
+                     return int(x.strftime('%Y%m%d'))
+                 except:
+                     return 0
+             df['date'] = dates.apply(_fmt)
+        except Exception as e:
+             pass
+             
     return df
 
 

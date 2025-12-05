@@ -118,16 +118,16 @@ def merge_stock_info_to_stock_list(market=('US', 'HK', 'CN')):
                 a_stock_info = pd.read_csv(map_cache_stock_info(m, symbol), dtype=str)
 
                 if a_stock_info is not None and not a_stock_info.empty:
-                    keys = a_stock_info.ix[:, 0].tolist()
+                    keys = a_stock_info.iloc[:, 0].tolist()
                     _create_a_column(extra_info, keys, stock_df.shape[0])
-                    values = a_stock_info.ix[:, 1].tolist()
+                    values = a_stock_info.iloc[:, 1].tolist()
                     for k, v in zip(keys, values):
                         extra_info[k][i] = v
 
         for key in extra_info:
             stock_df[key] = extra_info[key]
 
-        stock_df.fillna('-', inplace=True)
+        stock_df = stock_df.fillna('-')
         # 某些symbol的stockinfo为空，，stockinfp为空的原因是stockinfo页面404，因此可以丢弃
         valid_df = stock_df.loc[stock_df.symbol != '-']
         valid_df.to_csv(map_stock_list_rom(m), index=False, encoding='utf-8')

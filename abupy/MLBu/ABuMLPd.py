@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 
 from .ABuML import AbuML
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..CoreBu import ABuEnv
 from ..MarketBu import ABuSymbolPd
 from ..IndicatorBu import ABuNDMa
@@ -21,7 +21,7 @@ __author__ = '阿布'
 __weixin__ = 'abu_quant'
 
 
-class AbuMLPd(six.with_metaclass(ABCMeta, object)):
+class AbuMLPd(metaclass=ABCMeta):
     """封装AbuML的上层具体业务逻辑类"""
 
     def __init__(self, **kwarg):
@@ -254,7 +254,7 @@ class BtcBigWaveClf(AbuMLPd):
         btc_siblings = [btc_raw.iloc[sib_ind * 3:(sib_ind + 1) * 3, :]
                         for sib_ind in np.arange(0, int(btc_raw.shape[0] / 3))]
 
-        btc_df = pd.DataFrame()
+        rows = []
         for sib_btc in btc_siblings:
             # 使用数据标准化将连续3天交易日中的连续数值特征进行标准化操作
             sib_btc_scale = ABuScalerUtil.scaler_std(
@@ -285,5 +285,10 @@ class BtcBigWaveClf(AbuMLPd):
                              'pre_close': 'today_pre_close',
                              'date_week': 'today_date_week'}, inplace=True)
             # 将抽取改名字后的特征连接起来组合成为一条新数据，即3天的交易数据特征－>1条新的数据
-            btc_df = btc_df.append(pd.concat([a0, a1, a2], axis=0), ignore_index=True)
+            rows.append(pd.concat([a0, a1, a2], axis=0))
+            
+        if rows:
+            btc_df = pd.DataFrame(rows)
+        else:
+            btc_df = pd.DataFrame()
         return btc_df

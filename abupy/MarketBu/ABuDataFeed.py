@@ -10,12 +10,11 @@ from __future__ import print_function
 
 import logging
 import os
-
 import random
 import math
 import sqlite3 as sqlite
-
 import pandas as pd
+import tushare as ts
 
 from ..CoreBu.ABuEnv import EMarketTargetType, EMarketSubType
 from ..CoreBu import ABuEnv
@@ -303,7 +302,7 @@ class NTApi(StockBaseMarket, SupportMixin):
             if data is not None:
                 temp_df = self.data_parser_cls(self._symbol, data.json()).df
             if temp_df is not None:
-                kl_df = temp_df if kl_df is None else kl_df.append(temp_df)
+                kl_df = temp_df if kl_df is None else pd.concat([kl_df, temp_df])
         if kl_df is None:
             return None
         return StockBaseMarket._fix_kline_pd(kl_df, n_folds, start, end)
@@ -440,3 +439,115 @@ class HBApi(TCBaseMarket, SupportMixin):
     def minute(self, *args, **kwargs):
         """分钟k线接口"""
         raise NotImplementedError('HBApi minute NotImplementedError!')
+
+
+class TushareApi(StockBaseMarket, SupportMixin):
+    """tushare数据源"""
+    def __init__(self, symbol):
+        super(TushareApi, self).__init__(symbol)
+    
+    def kline(self, n_folds=2, start=None, end=None):
+        if start is None:
+             start = ABuDateUtil.begin_date(365 * n_folds)
+        
+        if end is None:
+             end = ABuDateUtil.current_str_date()
+        
+        code = self._symbol.symbol_code
+        
+        index = False
+        if self._symbol.is_a_index():
+            index = True
+        
+        try:
+            start = ABuDateUtil.fix_date(start)
+            end = ABuDateUtil.fix_date(end)
+            
+            df = None
+            # Try Tushare Pro if token is available
+            token = os.environ.get('TUSHARE_TOKEN')
+            if not token:
+                logging.error("TUSHARE_TOKEN not found in environment variables!")
+                return None
+
+            try:
+                ts.set_token(token)
+                # Determine suffix
+                ts_code = code
+                if not code.endswith('.SH') and not code.endswith('.SZ') and not code.endswith('.BJ'):
+                    # Guess suffix
+                    if index:
+                        # Indices
+                        if code.startswith('000'):
+                            ts_code = code + '.SH' # e.g. 000001.SH (上证指数)
+                        elif code.startswith('399'):
+                            ts_code = code + '.SZ' # e.g. 399001.SZ (深证成指)
+                    else:
+                        # Stocks
+                        if code.startswith('6') or code.startswith('9'):
+                            ts_code = code + '.SH'
+                        elif code.startswith('0') or code.startswith('3'):
+                            ts_code = code + '.SZ'
+                        elif code.startswith('8') or code.startswith('4'):
+                                ts_code = code + '.BJ'
+                
+                asset = 'I' if index else 'E'
+                adj = None if index else 'qfq'
+                
+                # Use pro_bar
+                # Note: tushare pro_bar might need 'ts_code' to include suffix
+                logging.info(f"Fetching Tushare data for {ts_code} from {start} to {end} asset={asset}")
+                df = ts.pro_bar(ts_code=ts_code, adj=adj, start_date=start, end_date=end, asset=asset)
+                if df is None or df.empty:
+                    logging.warning(f"Tushare returned no data for {ts_code}")
+                else:
+                    logging.info(f"Tushare returned {len(df)} rows for {ts_code}")
+                
+                if df is not None and not df.empty:
+                    # Pro returns: trade_date, open, high, low, close, pre_close, change, pct_chg, vol, amount
+                    # We need: date, open, close, high, low, volume, pre_close, p_change
+                    
+                    df.rename(columns={'trade_date': 'date', 'vol': 'volume', 'pct_chg': 'p_change'}, inplace=True)
+                    
+                    # Convert date to YYYY-MM-DD for consistency
+                    # Pro returns '20200101' string
+                    df['date'] = pd.to_datetime(df['date']).apply(lambda x: x.strftime('%Y-%m-%d'))
+                    
+                    # Sort ascending (Pro returns descending)
+                    df = df.sort_values('date')
+                else:
+                    return None
+            except Exception as e:
+                logging.warning("Tushare Pro failed: {}".format(e))
+                return None
+            
+            if df is None or df.empty:
+                return None
+            
+            # tushare returns date as string YYYY-MM-DD
+            df['date_int'] = df['date'].apply(lambda x: int(x.replace('-', '')))
+            df['date'] = pd.to_datetime(df['date'])
+            df.set_index('date', inplace=True)
+            df['date'] = df['date_int']
+            df = df.drop(['date_int'], axis=1)
+            
+            for col in ['open', 'close', 'high', 'low', 'volume']:
+                if col in df.columns:
+                    df[col] = df[col].astype(float)
+            
+            if 'pre_close' not in df.columns:
+                df['pre_close'] = df['close'].shift(1)
+            
+            if 'p_change' not in df.columns:
+                df['p_change'] = (df['close'] - df['pre_close']) / df['pre_close'] * 100
+            
+            df = df.fillna(0)
+            
+            return StockBaseMarket._fix_kline_pd(df, n_folds, start, end)
+            
+        except Exception as e:
+            logging.exception(e)
+            return None
+            
+    def minute(self, n_fold=5, *args, **kwargs):
+        return None

@@ -9,14 +9,14 @@ from __future__ import division
 
 from abc import ABCMeta, abstractmethod
 
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..CoreBu.ABuBase import AbuParamBase
 
 __author__ = '阿布'
 __weixin__ = 'abu_quant'
 
 
-class AbuPickTimeWorkBase(six.with_metaclass(ABCMeta, AbuParamBase)):
+class AbuPickTimeWorkBase(AbuParamBase, metaclass=ABCMeta):
     """择时抽象基类"""
 
     @abstractmethod
@@ -43,7 +43,7 @@ class AbuPickTimeWorkBase(six.with_metaclass(ABCMeta, AbuParamBase)):
         pass
 
 
-class AbuPickStockWorkBase(six.with_metaclass(ABCMeta, AbuParamBase)):
+class AbuPickStockWorkBase(AbuParamBase, metaclass=ABCMeta):
     """选股抽象基"""
 
     @abstractmethod

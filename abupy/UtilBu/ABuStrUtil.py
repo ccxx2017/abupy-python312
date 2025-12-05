@@ -12,7 +12,7 @@ import re
 
 # noinspection PyUnresolvedReferences
 from ..CoreBu.ABuFixes import xrange
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..CoreBu import ABuEnv
 
 K_CN_RE = re.compile(u'[\u4e00-\u9fa5]+')
@@ -66,11 +66,11 @@ def create_random_with_num_low(salt_count):
 
 def to_unicode(text, encoding=None, errors='strict'):
     """
-    to_native_str对py2生效，对six.text_type直接返回，其它的encode，默认utf-8
+    to_native_str对py2生效，对str直接返回，其它的encode，默认utf-8
     """
-    if isinstance(text, six.text_type):
+    if isinstance(text, str):
         return text
-    if not isinstance(text, (bytes, six.text_type)):
+    if not isinstance(text, (bytes, str)):
         raise TypeError('to_unicode must receive a bytes, str or unicode '
                         'object, got %s' % type(text).__name__)
     if encoding is None:
@@ -90,7 +90,7 @@ def to_bytes(text, encoding=None, errors='strict'):
     """
     if isinstance(text, bytes):
         return text
-    if not isinstance(text, six.string_types):
+    if not isinstance(text, str):
         raise TypeError('to_bytes must receive a unicode, str or bytes '
                         'object, got %s' % type(text).__name__)
     if encoding is None:

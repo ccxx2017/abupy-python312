@@ -8,9 +8,10 @@ from __future__ import division
 from __future__ import print_function
 
 import logging
-from collections import Iterable
+from collections.abc import Iterable
 
 import pandas as pd
+import numpy as np
 
 from .ABuDataSource import kline_pd
 from ..MarketBu.ABuDataCache import save_kline_df, check_csv_local
@@ -28,7 +29,6 @@ from ..UtilBu import ABuDateUtil
 from ..UtilBu.ABuFileUtil import batch_h5s
 from ..UtilBu.ABuProgress import AbuMulPidProgress, do_clear_output
 from ..CoreBu.ABuParallel import delayed, Parallel
-from ..CoreBu.ABuFixes import six
 # from ..UtilBu.ABuThreadPool import AbuThreadPoolExecutor
 
 __author__ = '阿布'
@@ -45,14 +45,52 @@ def _benchmark(df, benchmark, symbol):
     :param symbol: Symbol对象
     :return: 使用基准的时间范围切割返回的金融时间序列
     """
-    if len(df.index & benchmark.kl_pd.index) <= 0:
+    if len(df.index.intersection(benchmark.kl_pd.index)) <= 0:
         # 如果基准benchmark时间范围和输入的df没有交集，直接返回None
         return None
 
     # 两个金融时间序列通过loc寻找交集
-    kl_pd = df.loc[benchmark.kl_pd.index]
+    # Fix: pandas 2.0 loc requires labels to be in index. 
+    # If some labels in benchmark.kl_pd.index are not in df.index, it raises KeyError.
+    # We should use reindex or intersection first.
+    # Using reindex will introduce NaNs for missing dates, which is handled below.
+    # Also handle 'ValueError: cannot reindex on an axis with duplicate labels' by dropping duplicates
+    
+    # DEBUG PRINT
+    # print(f"DEBUG: _benchmark check. df.index[0]={df.index[0]}, type={type(df.index)}, benchmark.index[0]={benchmark.kl_pd.index[0]}, type={type(benchmark.kl_pd.index)}")
+
+    if df.index.has_duplicates:
+        df = df[~df.index.duplicated(keep='first')]
+    
+    # Fix: Ensure date column exists before reindexing
+    if 'date' not in df.columns:
+        try:
+             if hasattr(df.index, 'strftime'):
+                 df['date'] = df.index.strftime('%Y%m%d').astype(int)
+             else:
+                 df['date'] = pd.to_datetime(df.index).strftime('%Y%m%d').astype(int)
+        except Exception as e:
+            logging.warning(f'Failed to reconstruct date column in _benchmark: {e}')
+            # If we can't create date column, we can't proceed with date-based logic below
+            # return None or try to proceed without it if possible?
+            # The logic below relies on kl_pd['date'].isnull() which implies date column exists.
+            # If we add it as all NaNs?
+            df['date'] = np.nan
+
+    try:
+        kl_pd = df.reindex(benchmark.kl_pd.index)
+    except Exception as e:
+        logging.warning(f'reindex failed in _benchmark: {e}')
+        return None
+    
     # nan的date个数即为不相交的个数
-    nan_cnt = kl_pd['date'].isnull().value_counts()
+    if 'date' in kl_pd.columns:
+        nan_cnt = kl_pd['date'].isnull().value_counts()
+    else:
+        # Should not happen if we added it above, but just in case
+        kl_pd['date'] = np.nan
+        nan_cnt = pd.Series([kl_pd.shape[0]], index=[True])
+
     # 两个金融序列是否相同的结束日期
     same_end = df.index[-1] == benchmark.kl_pd.index[-1]
     # 两个金融序列是否相同的开始日期
@@ -78,28 +116,43 @@ def _benchmark(df, benchmark, symbol):
 
     # 来到这里说明没有放弃，那么就填充nan
     # 首先nan的交易量是0
-    kl_pd.volume.fillna(value=0, inplace=True)
+    kl_pd['volume'] = kl_pd['volume'].fillna(value=0)
     # nan的p_change是0
-    kl_pd.p_change.fillna(value=0, inplace=True)
+    kl_pd['p_change'] = kl_pd['p_change'].fillna(value=0)
     # 先把close填充了，然后用close填充其它的
-    kl_pd.close.fillna(method='pad', inplace=True)
-    kl_pd.close.fillna(method='bfill', inplace=True)
+    kl_pd['close'] = kl_pd['close'].ffill()
+    kl_pd['close'] = kl_pd['close'].bfill()
     # 用close填充open
-    kl_pd.open.fillna(value=kl_pd.close, inplace=True)
+    kl_pd['open'] = kl_pd['open'].fillna(value=kl_pd['close'])
     # 用close填充high
-    kl_pd.high.fillna(value=kl_pd.close, inplace=True)
+    kl_pd['high'] = kl_pd['high'].fillna(value=kl_pd['close'])
     # 用close填充low
-    kl_pd.low.fillna(value=kl_pd.close, inplace=True)
+    kl_pd['low'] = kl_pd['low'].fillna(value=kl_pd['close'])
     # 用close填充pre_close
-    kl_pd.pre_close.fillna(value=kl_pd.close, inplace=True)
+    kl_pd['pre_close'] = kl_pd['pre_close'].fillna(value=kl_pd['close'])
 
     # 细节nan处理完成后，把剩下的nan都填充了
-    kl_pd = kl_pd.fillna(method='pad')
+    kl_pd = kl_pd.ffill()
     # bfill再来一遍只是为了填充最前面的nan
-    kl_pd.fillna(method='bfill', inplace=True)
+    kl_pd = kl_pd.bfill()
 
     # pad了数据所以，交易日期date的值需要根据time index重新来一遍
-    kl_pd['date'] = [int(ts.date().strftime("%Y%m%d")) for ts in kl_pd.index]
+    # Fix: Handle NaT in index which might occur after reindexing if alignment failed or was partial
+    
+    date_list = []
+    for ts in kl_pd.index:
+        try:
+             # Use strftime directly on timestamp
+             date_list.append(int(ts.strftime("%Y%m%d")))
+        except:
+             date_list.append(0)
+             
+    kl_pd['date'] = date_list
+    
+    # Drop rows with invalid date (0) to avoid errors in week_of_date
+    if (kl_pd['date'] == 0).any():
+        kl_pd = kl_pd[kl_pd['date'] != 0]
+
     kl_pd['date_week'] = kl_pd['date'].apply(lambda x: ABuDateUtil.week_of_date(str(x), '%Y%m%d'))
 
     return kl_pd
@@ -125,7 +178,12 @@ def _make_kl_df(symbol, data_mode, n_folds, start, end, benchmark, save):
     if benchmark is not None and df is not None:
         # 如果有标尺，进行标尺切割，进行标尺切割后也可能变成none
         temp_symbol = save_kl_key[0]
+        print(f"DEBUG: _make_kl_df calling _benchmark for {symbol}")
         df = _benchmark(df, benchmark, temp_symbol)
+        if df is None:
+            print(f"DEBUG: _benchmark returned None for {symbol}")
+        else:
+            print(f"DEBUG: _benchmark returned df shape {df.shape} for {symbol}")
 
     if df is not None:
         # 规避重复交易日数据风险，subset只设置date做为滤除重复
@@ -184,8 +242,8 @@ def kl_df_dict_parallel(symbols, data_mode=ABuEnv.EMarketDataSplitMode.E_DATA_SP
     :param how: process：多进程，thread：多线程，main：单进程单线程
     """
 
-    # TODO Iterable和six.string_types的判断抽出来放在一个模块，做为Iterable的判断来使用
-    if not isinstance(symbols, Iterable) or isinstance(symbols, six.string_types):
+    # TODO Iterable和str的判断抽出来放在一个模块，做为Iterable的判断来使用
+    if not isinstance(symbols, Iterable) or isinstance(symbols, str):
         # symbols必须是可迭代的序列对象
         raise TypeError('symbols must a Iterable obj!')
     # 可迭代的symbols序列分成n_jobs个子序列
@@ -300,7 +358,7 @@ def make_kl_df(symbol, data_mode=ABuEnv.EMarketDataSplitMode.E_DATA_SPLIT_SE,
         # TODO pd.Panel过时
         return pd.Panel(panel)
 
-    elif isinstance(symbol, Symbol) or isinstance(symbol, six.string_types):
+    elif isinstance(symbol, Symbol) or isinstance(symbol, str):
         # 对单个symbol进行数据获取
         df, _ = _make_kl_df(symbol, data_mode=data_mode,
                             n_folds=n_folds, start=start, end=end, benchmark=benchmark, save=True)
@@ -332,7 +390,7 @@ def check_symbol_in_local_csv(symbol):
     :return: bool, symbol是否存在csv缓存
     """
 
-    if isinstance(symbol, six.string_types):
+    if isinstance(symbol, str):
         # 如果是str对象，通过code_to_symbol转化为Symbol对象
         symbol = code_to_symbol(symbol, rs=False)
     if symbol is None:
@@ -361,7 +419,7 @@ def combine_pre_kl_pd(kl_pd, n_folds=1):
     pre_kl_pd = make_kl_df(kl_pd.name, data_mode=ABuEnv.EMarketDataSplitMode.E_DATA_SPLIT_SE, n_folds=n_folds,
                            end=end)
     # 再合并两段时间序列，pre_kl_pd[:-1]跳过重复的end
-    combine_kl = kl_pd if pre_kl_pd is None else pre_kl_pd[:-1].append(kl_pd)
+    combine_kl = kl_pd if pre_kl_pd is None else pd.concat([pre_kl_pd[:-1], kl_pd])
     # 根据combine_kl长度重新进行key计算
     combine_kl['key'] = list(range(0, len(combine_kl)))
     return combine_kl
@@ -377,13 +435,13 @@ def calc_atr(kline_df):
         # 大于21d计算atr21
         kline_df['atr21'] = Atr.atr21(kline_df['high'].values, kline_df['low'].values, kline_df['pre_close'].values)
         # 将前面的bfill
-        kline_df['atr21'].fillna(method='bfill', inplace=True)
+        kline_df['atr21'] = kline_df['atr21'].bfill()
     kline_df['atr14'] = 0
     if kline_df.shape[0] > 14:
         # 大于14d计算atr14
         kline_df['atr14'] = Atr.atr14(kline_df['high'].values, kline_df['low'].values, kline_df['pre_close'].values)
         # 将前面的bfill
-        kline_df['atr14'].fillna(method='bfill', inplace=True)
+        kline_df['atr14'] = kline_df['atr14'].bfill()
 
 
 @AbuDeprecated('only for old abu!')

@@ -7,11 +7,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-try:
-    from collections import OrderedDict
-except ImportError:
-    from ..ExtBu.odict import OrderedDict
-from collections import namedtuple, Iterable
+from collections import OrderedDict
+from collections import namedtuple
+from collections.abc import Iterable
 
 import logging
 import math
@@ -25,7 +23,6 @@ from sklearn.metrics.pairwise import euclidean_distances, manhattan_distances, c
 
 from ..CoreBu import ABuEnv
 from ..UtilBu import ABuScalerUtil
-from ..CoreBu.ABuFixes import six
 from ..CoreBu.ABuPdHelper import pd_rolling_mean
 
 __author__ = '阿布'
@@ -327,8 +324,8 @@ def arr_to_pandas(func):
     @functools.wraps(func)
     def wrapper(arr, *arg, **kwargs):
 
-        # TODO Iterable和six.string_types的判断抽出来放在一个模块，做为Iterable的判断来使用
-        if not isinstance(arr, Iterable) or isinstance(arr, six.string_types):
+        # TODO Iterable和str的判断抽出来放在一个模块，做为Iterable的判断来使用
+        if not isinstance(arr, Iterable) or isinstance(arr, str):
             # arr必须是可以迭代的对象
             raise TypeError('arr not isinstance of Iterable')
 
@@ -358,8 +355,8 @@ def arr_to_numpy(func):
 
     @functools.wraps(func)
     def wrapper(arr, *arg, **kwargs):
-        # TODO Iterable和six.string_types的判断抽出来放在一个模块，做为Iterable的判断来使用
-        if not isinstance(arr, Iterable) or isinstance(arr, six.string_types):
+        # TODO Iterable和str的判断抽出来放在一个模块，做为Iterable的判断来使用
+        if not isinstance(arr, Iterable) or isinstance(arr, str):
             # arr必须是可以迭代的对象
             raise TypeError('arr not isinstance of Iterable')
 
@@ -447,6 +444,12 @@ def demean(arr, rolling_window=0, show=False):
         # arr_to_pandas装饰器保证了进来的类型不是pd.DataFrame就是pd.Series
         arr_mean = pd_rolling_mean(arr, window=rolling_window, min_periods=1)
         # arr_mean.fillna(method='bfill', inplace=True)
+        # Modern Pandas replacement for fillna(method='bfill')
+        # arr_mean.bfill(inplace=True) 
+        # But wait, the original code had it commented out!
+        # Let's check if I should uncomment it or leave it. 
+        # The user said "fix deprecated", but if it's commented out, it's not executing.
+        # However, I should check if there are UNCOMMENTED usages.
     else:
         arr_mean = arr.mean()
 

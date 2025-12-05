@@ -8,11 +8,20 @@ from __future__ import division
 from __future__ import print_function
 
 import functools
-from collections import Iterable
+from collections.abc import Iterable
 
 import pandas as pd
 from ..CoreBu.ABuFixes import partial
-from ..CoreBu.ABuFixes import six
+
+# Fix for pandas 2.0+ where 'append' was removed.
+if not hasattr(pd.DataFrame, 'append'):
+    def _append(self, other, ignore_index=False, verify_integrity=False, sort=False):
+        if isinstance(other, (list, tuple)):
+            to_concat = [self] + list(other)
+        else:
+            to_concat = [self, other]
+        return pd.concat(to_concat, ignore_index=ignore_index, verify_integrity=verify_integrity, sort=sort)
+    pd.DataFrame.append = _append
 
 __author__ = '阿布'
 __weixin__ = 'abu_quant'
@@ -34,7 +43,12 @@ try:
     from pandas.core.window import EWM
     g_pandas_has_ewm = True
 except ImportError:
-    g_pandas_has_ewm = False
+    try:
+        # pandas >= 1.x location
+        from pandas.core.window.ewm import ExponentialMovingWindow
+        g_pandas_has_ewm = True
+    except ImportError:
+        g_pandas_has_ewm = False
 
 try:
     # noinspection PyUnresolvedReferences
@@ -60,8 +74,8 @@ def __pd_object_covert_start(iter_obj):
     if isinstance(iter_obj, (pd.Series, pd.DataFrame)):
         # 如果本身就是(pd.Series, pd.DataFrame)，返回对返回值不需要转换，即False
         return iter_obj, False
-    # TODO Iterable和six.string_types的判断抽出来放在一个模块，做为Iterable的判断来使用
-    if isinstance(iter_obj, Iterable) and not isinstance(iter_obj, six.string_types):
+    # TODO Iterable和str的判断抽出来放在一个模块，做为Iterable的判断来使用
+    if isinstance(iter_obj, Iterable) and not isinstance(iter_obj, str):
         # 可迭代对象使用pd.Series进行包装，且返回对返回值需要转换为np.array，即True
         return pd.Series(iter_obj), True
     raise TypeError('pd_object must support Iterable!!!')

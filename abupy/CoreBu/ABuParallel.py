@@ -26,14 +26,15 @@ if False:
     """
     # MAC 直接import Parallel, delayed
     # noinspection PyUnresolvedReferences
-    from ..ExtBu.joblib import Parallel, delayed
+    from joblib import Parallel, delayed
 else:
     # windows需要使用ProcessPoolExecutor
     try:
         # noinspection PyCompatibility
         from concurrent.futures import ProcessPoolExecutor
     except ImportError:
-        from ..ExtBu.futures import ProcessPoolExecutor
+        # Python 3.12 has concurrent.futures, this is just a fallback if something is very wrong
+        from concurrent.futures import ProcessPoolExecutor
 
 
     def delayed(function):

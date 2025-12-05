@@ -13,7 +13,6 @@ from ..MarketBu import ABuSymbolPd
 from ..MarketBu.ABuSymbol import IndexSymbol, Symbol
 from ..CoreBu import ABuEnv
 from ..CoreBu.ABuBase import PickleStateMixin
-from ..CoreBu.ABuFixes import six
 
 __author__ = '阿布'
 __weixin__ = 'abu_quant'
@@ -65,6 +64,11 @@ class AbuBenchmark(PickleStateMixin):
         self.kl_pd = ABuSymbolPd.make_kl_df(benchmark, data_mode=EMarketDataSplitMode.E_DATA_SPLIT_SE,
                                             n_folds=n_folds,
                                             start=start, end=end)
+        
+        if self.kl_pd is None:
+            print(f"DEBUG: ABuBenchmark make_kl_df returned None for benchmark={benchmark}, start={start}, end={end}, n_folds={n_folds}")
+            # Try to fetch again with force net if local data is missing?
+            # For now just log it.
 
         if rs and self.kl_pd is None:
             # 如果基准时间序列都是none，就不要再向下运行了
@@ -74,7 +78,7 @@ class AbuBenchmark(PickleStateMixin):
         """完成 PickleStateMixin中__setstate__结束之前的工作，为kl_pd.name赋予准确的benchmark"""
         if isinstance(self.benchmark, Symbol):
             self.kl_pd.name = self.benchmark.value
-        elif isinstance(self.benchmark, six.string_types):
+        elif isinstance(self.benchmark, str):
             self.kl_pd.name = self.benchmark
 
     def __str__(self):

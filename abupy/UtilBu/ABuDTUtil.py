@@ -12,7 +12,7 @@ import logging
 import pdb
 import time
 import warnings
-from collections import Iterable
+from collections.abc import Iterable
 from contextlib import contextmanager
 
 import numpy as np
@@ -20,7 +20,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 from ..CoreBu import ABuEnv
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 
 
 def warnings_filter(func):
@@ -65,8 +65,8 @@ def arr_to_pandas(arr):
         函数装饰器：将可以迭代的序列转换为pd.DataFrame或者pd.Series，支持
         np.ndarray，list，dict, list，set，嵌套可迭代序列, 混嵌套可迭代序列
     """
-    # TODO Iterable和six.string_types的判断抽出来放在一个模块，做为Iterable的判断来使用
-    if not isinstance(arr, Iterable) or isinstance(arr, six.string_types):
+    # TODO Iterable和str的判断抽出来放在一个模块，做为Iterable的判断来使用
+    if not isinstance(arr, Iterable) or isinstance(arr, str):
         return arr
 
     if not isinstance(arr, pd.DataFrame) or isinstance(arr, pd.Series):

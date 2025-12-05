@@ -10,7 +10,6 @@ from __future__ import division
 import copy
 from abc import ABCMeta, abstractmethod
 
-from ..CoreBu.ABuFixes import six
 from ..CoreBu.ABuDeprecated import AbuDeprecated
 from ..BetaBu.ABuAtrPosition import AbuAtrPosition
 from ..BetaBu import ABuPositionBase
@@ -60,7 +59,7 @@ class BuyPutMixin(object):
         return -1.0
 
 
-class AbuFactorBuyBase(six.with_metaclass(ABCMeta, AbuParamBase)):
+class AbuFactorBuyBase(AbuParamBase, metaclass=ABCMeta):
     """
         买入择时策略因子基类：每一个继承AbuFactorBuyBase的子类必须混入一个方向类，
         且只能混入一个方向类，即具体买入因子必须明确买入方向，且只能有一个买入方向，
@@ -271,6 +270,7 @@ class AbuFactorBuyBase(six.with_metaclass(ABCMeta, AbuParamBase)):
         :param today: 当前驱动的交易日金融时间序列数据
         :return: 生成的交易订单AbuOrder对象
         """
+        # print(f"DEBUG: read_fit_day called for {self.factor_name} on {today.date}")
         if self.skip_days > 0:
             self.skip_days -= 1
             return None
@@ -289,6 +289,7 @@ class AbuFactorBuyBase(six.with_metaclass(ABCMeta, AbuParamBase)):
         需要进行明天买入操作，不能执行今天买入操作
         :return 生成的交易订单AbuOrder对象
         """
+        print(f"DEBUG: buy_tomorrow triggered for {self.factor_name} at index {self.today_ind}")
         return self.make_buy_order(self.today_ind)
 
     def buy_today(self):

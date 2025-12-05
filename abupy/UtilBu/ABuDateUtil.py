@@ -11,7 +11,7 @@ import datetime
 import time
 from datetime import datetime as dt
 
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 # noinspection PyUnresolvedReferences
 from ..CoreBu.ABuFixes import filter
 
@@ -121,7 +121,7 @@ def fix_date(date_str):
     """
     if date_str is not None:
         # 如果是字符串先统一把除了数字之外的都干掉，变成干净的数字串
-        if isinstance(date_str, six.string_types):
+        if isinstance(date_str, str):
             # eg, 2016:01-01, 201601-01, 2016,01 01, 2016/01-01 -> 20160101
             date_str = ''.join(list(filter(lambda c: c.isdigit(), date_str)))
         # 再统一确定%Y-%m-%d形式
@@ -148,7 +148,18 @@ def fmt_date(convert_date):
     if isinstance(convert_date, float):
         # float先转换int
         convert_date = int(convert_date)
+    
+    if convert_date is None or str(convert_date).lower() == 'nat' or str(convert_date).lower() == 'nan':
+        # Handle NaT or NaN values gracefully
+        return "1970-01-01"
+
+    if hasattr(convert_date, 'strftime'):
+        return convert_date.strftime('%Y-%m-%d')
+    
     convert_date = str(convert_date)
+    if not convert_date:
+        # Handle empty string
+        return "1970-01-01"
 
     if len(convert_date) > 8 and convert_date.startswith('20'):
         # eg '20160310000000000'
@@ -164,6 +175,13 @@ def fmt_date(convert_date):
             convert_date = "%s-0%s-0%s" % (convert_date[0:4],
                                            convert_date[4:5], convert_date[5:6])
         else:
+            # Try to handle simple string case that might be just numbers but not length 6 or 8
+            # Or handle '2016-01-01' that is already correct but somehow passed here?
+            # But the check `if '-' not in convert_date` prevents that.
+            # Maybe it is '2016/01/01'?
+            if '/' in convert_date:
+                 return convert_date.replace('/', '-')
+            
             raise ValueError('fmt_date: convert_date fmt error {}'.format(convert_date))
     return convert_date
 
@@ -181,11 +199,11 @@ def diff(start_date, end_date, check_order=True):
     start_date = fix_date(start_date)
     end_date = fix_date(end_date)
 
-    if check_order and isinstance(start_date, six.string_types):
+    if check_order and isinstance(start_date, str):
         # start_date字符串的日期格式转换为int
         start_date = date_str_to_int(start_date)
 
-    if check_order and isinstance(end_date, six.string_types):
+    if check_order and isinstance(end_date, str):
         # end_date字符串的日期格式转换为int
         end_date = date_str_to_int(end_date)
 

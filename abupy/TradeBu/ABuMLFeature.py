@@ -15,7 +15,7 @@ import numpy as np
 
 from ..CoreBu import ABuEnv
 # noinspection PyUnresolvedReferences
-from ..CoreBu.ABuFixes import xrange, range, six
+from ..CoreBu.ABuFixes import xrange, range
 from ..MarketBu import ABuMarketDrawing
 from ..TLineBu import ABuTLAtr
 from ..TLineBu import ABuTLJump

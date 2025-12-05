@@ -12,11 +12,11 @@ import logging
 import numpy as np
 
 from ..MarketBu.ABuDataBase import BaseMarket
-from ..MarketBu.ABuDataFeed import BDApi, TXApi, NTApi, HBApi, SNUSApi, SNFuturesApi, SNFuturesGBApi
+from ..MarketBu.ABuDataFeed import BDApi, TXApi, NTApi, HBApi, SNUSApi, SNFuturesApi, SNFuturesGBApi, TushareApi
 from .ABuSymbol import Symbol
 from .ABuSymbol import code_to_symbol
 from ..CoreBu import ABuEnv
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..CoreBu.ABuEnv import EMarketDataSplitMode, EMarketDataFetchMode
 from ..CoreBu.ABuEnv import EMarketSourceType
 from ..MarketBu.ABuDataCache import load_kline_df, load_kline_df_net
@@ -37,7 +37,8 @@ source_dict = {EMarketSourceType.E_MARKET_SOURCE_bd.value: BDApi,
                EMarketSourceType.E_MARKET_SOURCE_sn_us.value: SNUSApi,
                EMarketSourceType.E_MARKET_SOURCE_sn_futures.value: SNFuturesApi,
                EMarketSourceType.E_MARKET_SOURCE_sn_futures_gb.value: SNFuturesGBApi,
-               EMarketSourceType.E_MARKET_SOURCE_hb_tc.value: HBApi}
+               EMarketSourceType.E_MARKET_SOURCE_hb_tc.value: HBApi,
+               EMarketSourceType.E_MARKET_SOURCE_tushare.value: TushareApi}
 
 
 def _calc_start_end_date(df, force_local, n_folds, start, end):
@@ -119,7 +120,7 @@ def kline_pd(symbol, data_mode, n_folds=2, start=None, end=None, save=True):
     try:
         if isinstance(symbol, Symbol):
             temp_symbol = symbol
-        elif isinstance(symbol, six.string_types):
+        elif isinstance(symbol, str):
             # 如果是str对象，通过code_to_symbol转化为Symbol对象
             temp_symbol = code_to_symbol(symbol)
         else:
@@ -131,7 +132,7 @@ def kline_pd(symbol, data_mode, n_folds=2, start=None, end=None, save=True):
             # 有设置私有数据源
             source = ABuEnv.g_private_data_source
             # 私有源首先设置的需要是class类型，然后判断是BaseMarket的子类
-            if not isinstance(source, six.class_types):
+            if not isinstance(source, type):
                 raise TypeError('g_private_data_source must be a class type!!!')
             if not issubclass(ABuEnv.g_private_data_source, BaseMarket):
                 raise TypeError('g_private_data_source must be a subclass of BaseMarket!!!')
@@ -184,8 +185,20 @@ def kline_pd(symbol, data_mode, n_folds=2, start=None, end=None, save=True):
 
         if match:
             if data_mode == EMarketDataSplitMode.E_DATA_SPLIT_SE:
+                # Fix: Ensure date column exists for filtering
+                if 'date' not in df.columns:
+                    # If date column is missing (e.g. due to CSV read issues), reconstruct it from index
+                    try:
+                        if hasattr(df.index, 'strftime'):
+                             df['date'] = df.index.strftime('%Y%m%d').astype(int)
+                        else:
+                             # Try converting to datetime first
+                             df['date'] = pd.to_datetime(df.index).strftime('%Y%m%d').astype(int)
+                    except Exception as e:
+                        logging.warning(f'Failed to reconstruct date column from index: {e}')
+
                 # 如果满足，且模式需要根据切割df的进行切割筛选
-                df = df[(start_int <= df.date) & (df.date <= end_int)]
+                df = df[(start_int <= df['date']) & (df['date'] <= end_int)]
         elif not force_local:
             # 数据不满足，但非强制本地，走网络
             df = load_kline_df_net(source, temp_symbol, n_folds, start=start, end=end, start_int=start_int,
@@ -198,5 +211,7 @@ def kline_pd(symbol, data_mode, n_folds=2, start=None, end=None, save=True):
         # hdf5 bug
         logging.debug('{} HDF5ExtError'.format(symbol))
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         logging.info('Exception kline_pd symbol:{} e:{}'.format(symbol, e))
     return None, None

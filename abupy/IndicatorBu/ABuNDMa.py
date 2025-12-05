@@ -10,7 +10,7 @@ from __future__ import division
 from __future__ import absolute_import
 from __future__ import print_function
 
-from collections import Iterable
+from collections.abc import Iterable
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -18,7 +18,7 @@ from enum import Enum
 
 from .ABuNDBase import plot_from_order, g_calc_type, ECalcType
 from ..CoreBu.ABuPdHelper import pd_rolling_mean, pd_ewm_mean
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..UtilBu.ABuDTUtil import catch_error
 
 __author__ = '阿布'

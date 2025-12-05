@@ -10,7 +10,6 @@ from __future__ import division
 from enum import Enum
 from abc import ABCMeta, abstractmethod
 
-from ..CoreBu.ABuFixes import six
 # noinspection PyUnresolvedReferences
 from ..CoreBu.ABuFixes import filter
 from ..CoreBu.ABuBase import AbuParamBase
@@ -28,7 +27,7 @@ class ESupportDirection(Enum):
     DIRECTION_PUT = -1.0
 
 
-class AbuFactorSellBase(six.with_metaclass(ABCMeta, AbuParamBase)):
+class AbuFactorSellBase(AbuParamBase, metaclass=ABCMeta):
     """
         卖出择时策略因子基类：卖出择时策略基类和买入择时基类不同，买入择时
         必须混入一个方向类，代表买涨还是买跌，且只能有一个方向，，卖出策略

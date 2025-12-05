@@ -834,10 +834,15 @@ class AbuUmpMainBase(AbuUmpBase):
                     ..............................
         :return: improved, effect_num, loss_rate, nts_pd
         """
-        nts_pd = pd.DataFrame()
+        nts_pd_list = []
         for component_cluster in llps.index:
             # component_cluster eg:  '14-7', self.nts[component_cluster]即对应的pd.DataFrame对象
-            nts_pd = nts_pd.append(self.nts[component_cluster])
+            nts_pd_list.append(self.nts[component_cluster])
+        
+        if nts_pd_list:
+            nts_pd = pd.concat(nts_pd_list)
+        else:
+            nts_pd = pd.DataFrame()
             """
                 eg: self.nts字典中元素如下所示：
                 '14-7':
@@ -1117,7 +1122,7 @@ class AbuUmpMainBase(AbuUmpBase):
         2011-09-30       0     11.123     -1.887     -2.775       1.585    158     49      -0.066309
         """
         # 通过nts_pd通过apply迭代每一行，即每一笔交易的ind映射的原始交易单self.fiter.order_has_ret中的profit_cg值
-        nts_pd['profit_cg'] = nts_pd.apply(lambda x: self.fiter.order_has_ret.ix[int(x.ind)].profit_cg, axis=1)
+        nts_pd['profit_cg'] = nts_pd.apply(lambda x: self.fiter.order_has_ret.iloc[int(x.ind)].profit_cg, axis=1)
         """
             eg：nts_pd添加了新列profit_cg后如下所示：
                         result  buy_deg_ang42  buy_deg_ang252  buy_deg_ang60  \
@@ -1171,10 +1176,15 @@ class AbuUmpMainBase(AbuUmpBase):
         if llps is None:
             llps = self.llps
 
-        nts_pd = pd.DataFrame()
+        nts_pd_list = []
         for component_cluster in llps.index:
             # component_cluster eg:  '14-7', self.nts[component_cluster]即对应的pd.DataFrame对象
-            nts_pd = nts_pd.append(self.nts[component_cluster])
+            nts_pd_list.append(self.nts[component_cluster])
+        
+        if nts_pd_list:
+            nts_pd = pd.concat(nts_pd_list)
+        else:
+            nts_pd = pd.DataFrame()
             """
                 eg: self.nts字典中元素如下所示：
                 '14-7':

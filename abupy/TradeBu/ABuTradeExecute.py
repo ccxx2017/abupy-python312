@@ -47,25 +47,52 @@ def make_orders_pd(orders, kl_pd):
     :param kl_pd: 金融时间序列，pd.DataFrame对象
     """
     ret_orders_pd = None
+    orders_pd_list = []
     for index, order in enumerate(orders):
         # 迭代order，将每一个AbuOrder对象转换为一个pd.DataFrame对象
-        order_pd = pd.DataFrame(np.array([order.buy_date, order.buy_price, order.buy_cnt, order.buy_factor,
-                                          order.buy_symbol, order.buy_pos,
-                                          order.buy_type_str, order.expect_direction,
-                                          order.sell_type_extra, order.sell_date, order.sell_price, order.sell_type,
-                                          order.ml_features]).reshape(1, -1),
-                                index=[index],
-                                columns=['buy_date', 'buy_price', 'buy_cnt', 'buy_factor', 'symbol', 'buy_pos',
-                                         'buy_type_str', 'expect_direction',
-                                         'sell_type_extra',
-                                         'sell_date',
-                                         'sell_price', 'sell_type', 'ml_features'])
+        order_pd = pd.DataFrame({
+            'buy_date': [order.buy_date],
+            'buy_price': [order.buy_price],
+            'buy_cnt': [order.buy_cnt],
+            'buy_factor': [order.buy_factor],
+            'symbol': [order.buy_symbol],
+            'buy_pos': [order.buy_pos],
+            'buy_type_str': [order.buy_type_str],
+            'expect_direction': [order.expect_direction],
+            'sell_type_extra': [order.sell_type_extra],
+            'sell_date': [order.sell_date],
+            'sell_price': [order.sell_price],
+            'sell_type': [order.sell_type],
+            'ml_features': [order.ml_features]
+        }, index=[index])
+
+        # Enforce types to avoid FutureWarning in pd.concat and fillna
+        order_pd['buy_date'] = order_pd['buy_date'].astype(int)
+        order_pd['buy_price'] = order_pd['buy_price'].astype(float)
+        order_pd['buy_cnt'] = order_pd['buy_cnt'].astype(float)
+        order_pd['buy_factor'] = order_pd['buy_factor'].astype(object) # Strings
+        order_pd['symbol'] = order_pd['symbol'].astype(object) # Strings
+        order_pd['buy_pos'] = order_pd['buy_pos'].astype(object) # Strings
+        order_pd['buy_type_str'] = order_pd['buy_type_str'].astype(object) # Strings
+        order_pd['expect_direction'] = order_pd['expect_direction'].astype(float)
+        order_pd['sell_type_extra'] = order_pd['sell_type_extra'].astype(object) # Strings
+        order_pd['sell_date'] = order_pd['sell_date'].astype(float)
+        order_pd['sell_price'] = order_pd['sell_price'].astype(float)
+        order_pd['sell_type'] = order_pd['sell_type'].astype(object) # Strings
+        order_pd['ml_features'] = order_pd['ml_features'].astype(object) # Dicts/Objects
 
         # 从原始金融时间序列中找到key，赋予order_pd['key']
         mask = kl_pd[kl_pd['date'] == order.buy_date]
         order_pd['key'] = mask['key'].values[0]
-        # 将所有order_pd concat生成一个pd.DataFrame对象
-        ret_orders_pd = order_pd if ret_orders_pd is None else pd.concat([ret_orders_pd, order_pd])
+        orders_pd_list.append(order_pd)
+
+    if orders_pd_list:
+        ret_orders_pd = pd.concat(orders_pd_list)
+    else:
+        # 如果没有订单，返回空的DataFrame或者None，取决于原逻辑
+        # 原逻辑如果orders为空，ret_orders_pd为None，后续会报错，所以这里假设orders不为空
+        # 或者如果为空，我们在后面处理
+        return pd.DataFrame()
 
     # 转换连接好的pd.DataFrame对象的index赋予对应的时间，形成交易时间序列
     dates_fmt = list(map(lambda date: ABuDateUtil.fmt_date(date), ret_orders_pd['buy_date'].tolist()))

@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 
 from .ABuSymbol import EMarketTargetType
-from ..CoreBu.ABuFixes import six
+# from ..CoreBu.ABuFixes import six
 from ..UtilBu import ABuDateUtil
 
 __author__ = '阿布'
@@ -39,7 +39,7 @@ class AbuDataParseWrap(object):
 
     def __call__(self, cls):
         """只做为数据源解析类的装饰器，统一封装通用的数据解析规范及流程"""
-        if isinstance(cls, six.class_types):
+        if isinstance(cls, type):
             # 只做为类装饰器使用
             init = cls.__init__
 
@@ -91,7 +91,7 @@ class AbuDataParseWrap(object):
 
             # 从收盘价格序列shift出昨收价格序列
             warp_self.df['pre_close'] = warp_self.df['close'].shift(1)
-            warp_self.df['pre_close'].fillna(warp_self.df['open'], axis=0, inplace=True)
+            warp_self.df['pre_close'] = warp_self.df['pre_close'].fillna(warp_self.df['open'])
             # 添加日期int列
             warp_self.df['date'] = warp_self.df['date'].apply(lambda x: ABuDateUtil.date_str_to_int(str(x)))
             # 添加周几列date_week，值为0-4，分别代表周一到周五
@@ -128,16 +128,27 @@ class TXParser(object):
         :param sub_market: 子市场（交易所）类型
         :param json_dict: 请求返回的json数据
         """
-        if json_dict['code'] == 0:
-            if symbol.market == EMarketTargetType.E_MARKET_TARGET_US:
-                data = json_dict['data'][symbol.value + sub_market]
-            else:
-                data = json_dict['data'][symbol.value]
+        print(f"DEBUG: TXParser json_dict keys: {json_dict.keys()}")
+        if 'data' in json_dict:
+            print(f"DEBUG: TXParser data type: {type(json_dict['data'])}")
+            if isinstance(json_dict['data'], list) and len(json_dict['data']) > 0:
+                 print(f"DEBUG: TXParser data[0]: {json_dict['data'][0]}")
 
-            if 'qfqday' in data.keys():
-                data = data['qfqday']
+        if json_dict['code'] == 0:
+            if isinstance(json_dict['data'], list):
+                # If data is a list, use it directly
+                data = json_dict['data']
             else:
-                data = data['day']
+                if symbol.market == EMarketTargetType.E_MARKET_TARGET_US:
+                    data = json_dict['data'][symbol.value + sub_market]
+                else:
+                    data = json_dict['data'][symbol.value]
+
+            if isinstance(data, dict):
+                if 'qfqday' in data.keys():
+                    data = data['qfqday']
+                else:
+                    data = data['day']
 
             # 为AbuDataParseWrap准备类必须的属性序列
             if len(data) > 0:

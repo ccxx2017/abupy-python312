@@ -132,7 +132,7 @@ def union_in_2orders(orders_pd, other_orders_pd):
     :param other_orders_pd: 回测结果生成的交易订单构成的pd.DataFrame对象
     :return: orders_pd | cmp_orders_pd
     """
-    orders_pd = orders_pd.append(other_orders_pd)
+    orders_pd = pd.concat([orders_pd, other_orders_pd])
     orders_pd = orders_pd.drop_duplicates()
     return orders_pd
 

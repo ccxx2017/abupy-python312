@@ -57,7 +57,8 @@ def gen_dict_pick_time_kl_pd(target_symbols, capital, benchmark, show_progress=T
                 progress.show(epoch + 1)
                 # 迭代target_symbols，获取对应时间交易序列
                 kl_pd = ABuSymbolPd.make_kl_df(target_symbol, data_mode=EMarketDataSplitMode.E_DATA_SPLIT_UNDO,
-                                               benchmark=benchmark, n_folds=benchmark.n_folds)
+                                               benchmark=benchmark, n_folds=benchmark.n_folds,
+                                               start=benchmark.start, end=benchmark.end)
                 # 以target_symbol为key将时间金融序列kl_pd添加到返回字典中
                 pick_kl_pd_dict[target_symbol] = kl_pd
     _batch_gen_dict_pick_time_kl_pd()
@@ -155,7 +156,8 @@ class AbuKLManager(object):
     def _fetch_pick_time_kl_pd(self, target_symbol):
         """获取择时时段金融时间序列"""
         return ABuSymbolPd.make_kl_df(target_symbol, data_mode=EMarketDataSplitMode.E_DATA_SPLIT_UNDO,
-                                      benchmark=self.benchmark, n_folds=self.benchmark.n_folds)
+                                      benchmark=self.benchmark, n_folds=self.benchmark.n_folds,
+                                      start=self.benchmark.start, end=self.benchmark.end)
 
     def get_pick_time_kl_pd(self, target_symbol):
         """对外获取择时时段金融时间序列，首先在内部择时字典中寻找，没找到使用_fetch_pick_time_kl_pd获取，且保存择时字典"""
