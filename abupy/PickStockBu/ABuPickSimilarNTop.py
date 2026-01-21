@@ -65,6 +65,10 @@ class AbuPickSimilarNTop(AbuPickStockBase):
                                                                   self.s_sum_rank,
                                                                   show=False)
         # 边际筛选
+        if similar_rank is None:
+            import logging
+            logging.info("ABuPickSimilarNTop: similar_rank is None for target {}".format(target_symbol))
+            return False
         if self.threshold_similar_min < similar_rank < self.threshold_similar_max:
             return True
         return False

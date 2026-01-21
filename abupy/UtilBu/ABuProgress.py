@@ -11,9 +11,29 @@ import os
 import datetime
 import time
 
-from IPython.display import clear_output
-from IPython.display import display
-from ipywidgets import FloatProgress, Text, Box
+try:
+    from IPython.display import clear_output
+    from IPython.display import display
+    from ipywidgets import FloatProgress, Text, Box
+except ImportError:
+    # Define dummy classes and functions if modules are missing
+    def clear_output(wait=False):
+        pass
+
+    def display(*args, **kwargs):
+        pass
+
+    class DummyWidget(object):
+        def __init__(self, *args, **kwargs):
+            self.value = 0
+            self.description = ''
+
+        def close(self):
+            pass
+
+    FloatProgress = DummyWidget
+    Text = DummyWidget
+    Box = DummyWidget
 
 from ..CoreBu import ABuEnv
 # noinspection PyUnresolvedReferences

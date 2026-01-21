@@ -31,14 +31,17 @@ except ImportError:
 
 
 """内置数据源source_dict"""
-source_dict = {EMarketSourceType.E_MARKET_SOURCE_bd.value: BDApi,
-               EMarketSourceType.E_MARKET_SOURCE_tx.value: TXApi,
-               EMarketSourceType.E_MARKET_SOURCE_nt.value: NTApi,
-               EMarketSourceType.E_MARKET_SOURCE_sn_us.value: SNUSApi,
-               EMarketSourceType.E_MARKET_SOURCE_sn_futures.value: SNFuturesApi,
-               EMarketSourceType.E_MARKET_SOURCE_sn_futures_gb.value: SNFuturesGBApi,
-               EMarketSourceType.E_MARKET_SOURCE_hb_tc.value: HBApi,
-               EMarketSourceType.E_MARKET_SOURCE_tushare.value: TushareApi}
+source_dict = {EMarketSourceType.E_MARKET_SOURCE_tushare.value: TushareApi}
+
+# 确保只支持Tushare数据源，移除其他数据源
+# source_dict = {EMarketSourceType.E_MARKET_SOURCE_bd.value: BDApi,
+#                EMarketSourceType.E_MARKET_SOURCE_tx.value: TXApi,
+#                EMarketSourceType.E_MARKET_SOURCE_nt.value: NTApi,
+#                EMarketSourceType.E_MARKET_SOURCE_sn_us.value: SNUSApi,
+#                EMarketSourceType.E_MARKET_SOURCE_sn_futures.value: SNFuturesApi,
+#                EMarketSourceType.E_MARKET_SOURCE_sn_futures_gb.value: SNFuturesGBApi,
+#                EMarketSourceType.E_MARKET_SOURCE_hb_tc.value: HBApi,
+#                EMarketSourceType.E_MARKET_SOURCE_tushare.value: TushareApi}
 
 
 def _calc_start_end_date(df, force_local, n_folds, start, end):

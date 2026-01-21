@@ -294,8 +294,8 @@ class EMarketSubType(Enum):
     COIN = 'COIN'
 
 
-"""切换目标操作市场，美股，A股，港股，期货，比特币等，默认美股市场"""
-g_market_target = EMarketTargetType.E_MARKET_TARGET_US
+"""切换目标操作市场，美股，A股，港股，期货，比特币等，默认A股市场"""
+g_market_target = EMarketTargetType.E_MARKET_TARGET_CN
 
 """市场中1年交易日，默认250日"""
 g_market_trade_year = 250
@@ -488,7 +488,8 @@ def init_logging():
     if g_is_ipython and not g_is_py3:
         """ipython在python2的一些版本需要reload logging模块，否则不显示log信息"""
         # noinspection PyUnresolvedReferences, PyCompatibility
-        reload(logging)
+        import importlib
+        importlib.reload(logging)
         # pass
 
     if not os.path.exists(g_project_log_dir):

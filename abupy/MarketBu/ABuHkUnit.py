@@ -55,7 +55,7 @@ class AbuHkUnit(FreezeAttrMixin):
         if isinstance(symbol, Symbol):
             # Symbol对象进行转换
             symbol = symbol.value
-        elif isinstance(symbol, six.string_types) and symbol.isdigit():
+        elif isinstance(symbol, str) and symbol.isdigit():
             # symbol字符串, 但是没有hk，则加上
             symbol = 'hk{}'.format(symbol)
 
@@ -85,7 +85,7 @@ class AbuHkUnit(FreezeAttrMixin):
         """
         if isinstance(item, Symbol):
             item = item.value
-        elif isinstance(item, six.string_types) and item.isdigit():
+        elif isinstance(item, str) and item.isdigit():
             item = 'hk{}'.format(item)
 
         return item in self.hk_unit_df.index

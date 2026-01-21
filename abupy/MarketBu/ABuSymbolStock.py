@@ -372,7 +372,7 @@ def query_stock_info(symbol):
     :param symbol: eg：usTSLA
     :return: 一行数据的pd.DataFrame对象
     """
-    if isinstance(symbol, six.string_types):
+    if isinstance(symbol, str):
         symbol = code_to_symbol(symbol)
 
     if symbol.is_a_stock():

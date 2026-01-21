@@ -498,11 +498,14 @@ class AbuMetricsBase(object):
         plt.grid(True)
         plt.show()
 
+        self._do_log_func(max_draw_down, down_rate)
+
+    def _do_log_func(self, max_draw_down, down_rate):
         self.log_func('最大回撤: {:5f}'.format(down_rate))
         self.log_func('最大回测启始时间:{}, 结束时间{}, 共回测{:3f}'.format(
-            ABuDateUtil.timestamp_to_str(list(six.iterkeys(max_draw_down))[0][0]),
-            ABuDateUtil.timestamp_to_str(list(six.iterkeys(max_draw_down))[0][1]),
-            list(six.itervalues(max_draw_down))[0]))
+            ABuDateUtil.timestamp_to_str(list(max_draw_down.keys())[0][0]),
+            ABuDateUtil.timestamp_to_str(list(max_draw_down.keys())[0][1]),
+            list(max_draw_down.values())[0]))
 
     @valid_check
     def transform_to_full_rate_factor(self, read_cash=-1, kl_pd_manager=None, n_process_kl=ABuEnv.g_cpu_cnt,

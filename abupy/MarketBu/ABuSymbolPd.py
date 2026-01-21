@@ -56,9 +56,6 @@ def _benchmark(df, benchmark, symbol):
     # Using reindex will introduce NaNs for missing dates, which is handled below.
     # Also handle 'ValueError: cannot reindex on an axis with duplicate labels' by dropping duplicates
     
-    # DEBUG PRINT
-    # print(f"DEBUG: _benchmark check. df.index[0]={df.index[0]}, type={type(df.index)}, benchmark.index[0]={benchmark.kl_pd.index[0]}, type={type(benchmark.kl_pd.index)}")
-
     if df.index.has_duplicates:
         df = df[~df.index.duplicated(keep='first')]
     
@@ -355,8 +352,8 @@ def make_kl_df(symbol, data_mode=ABuEnv.EMarketDataSplitMode.E_DATA_SPLIT_SE,
                         panel[symbol[pos]] = _df
 
             _batch_make_kl_df()
-        # TODO pd.Panel过时
-        return pd.Panel(panel)
+        # TODO pd.Panel过时，现在直接返回dict，外部需要自己处理
+        return panel
 
     elif isinstance(symbol, Symbol) or isinstance(symbol, str):
         # 对单个symbol进行数据获取

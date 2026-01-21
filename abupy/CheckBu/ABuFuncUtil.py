@@ -13,10 +13,11 @@ from abc import ABCMeta
 # from ..CoreBu.ABuFixes import six
 
 try:
-    from inspect import getfullargspec as getargspec
+    from inspect import getfullargspec
+    getargspec = getfullargspec
 except ImportError:
-
     from inspect import getargspec
+    getfullargspec = getargspec
 
 __author__ = '夜猫'
 __weixin__ = 'abu_quant'
@@ -47,7 +48,7 @@ def get_arg_defaults(func):
     :return: 函数参数名：默认值
     """
     # 解包函数参数及默认值
-    argspec = getargspec(func)
+    argspec = getfullargspec(func)
     spec_args = argspec.args if argspec.args else []
     defaults = argspec.defaults if argspec.defaults else ()
     # 拼装默认值dict

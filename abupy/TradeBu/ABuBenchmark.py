@@ -66,9 +66,9 @@ class AbuBenchmark(PickleStateMixin):
                                             start=start, end=end)
         
         if self.kl_pd is None:
-            print(f"DEBUG: ABuBenchmark make_kl_df returned None for benchmark={benchmark}, start={start}, end={end}, n_folds={n_folds}")
             # Try to fetch again with force net if local data is missing?
             # For now just log it.
+            pass
 
         if rs and self.kl_pd is None:
             # 如果基准时间序列都是none，就不要再向下运行了

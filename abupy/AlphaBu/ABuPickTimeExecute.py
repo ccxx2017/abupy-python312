@@ -58,7 +58,6 @@ def _do_pick_time_work(capital, buy_factors, sell_factors, kl_pd, benchmark, dra
     :return:
     """
     if kl_pd is None or kl_pd.shape[0] == 0:
-        print(f"DEBUG: _do_pick_time_work early return. kl_pd is {'None' if kl_pd is None else 'Empty'}")
         return None, EFitError.NET_ERROR
 
     pick_timer_worker = AbuPickTimeWorker(capital, kl_pd, benchmark, buy_factors, sell_factors)
@@ -116,7 +115,6 @@ def do_symbols_with_same_factors(target_symbols, benchmark, buy_factors, sell_fa
                     p_buy_factors, p_sell_factors = func_factors(target_symbol)
                 try:
                     kl_pd = kl_pd_manager.get_pick_time_kl_pd(target_symbol)
-                    print(f"DEBUG: Execute fetched {target_symbol} from manager. kl_pd is {'None' if kl_pd is None else 'Shape: ' + str(kl_pd.shape)}")
                     ret, fit_error = _do_pick_time_work(capital, p_buy_factors, p_sell_factors, kl_pd, benchmark,
                                                         draw=show, show_info=show,
                                                         show_pg=(len(target_symbols) == 1 and show_progress))

@@ -122,7 +122,7 @@ class AbuFactorBuyBase(AbuParamBase, metaclass=ABCMeta):
 
         if 'position' in kwargs:
             position = kwargs.pop('position', AbuAtrPosition)
-            if isinstance(position, six.class_types):
+            if isinstance(position, type):
                 # 如果position里面直接设置的是一个class，直接弹出
                 self.position_class = position
             elif isinstance(position, dict):
@@ -270,7 +270,6 @@ class AbuFactorBuyBase(AbuParamBase, metaclass=ABCMeta):
         :param today: 当前驱动的交易日金融时间序列数据
         :return: 生成的交易订单AbuOrder对象
         """
-        # print(f"DEBUG: read_fit_day called for {self.factor_name} on {today.date}")
         if self.skip_days > 0:
             self.skip_days -= 1
             return None
@@ -289,7 +288,6 @@ class AbuFactorBuyBase(AbuParamBase, metaclass=ABCMeta):
         需要进行明天买入操作，不能执行今天买入操作
         :return 生成的交易订单AbuOrder对象
         """
-        print(f"DEBUG: buy_tomorrow triggered for {self.factor_name} at index {self.today_ind}")
         return self.make_buy_order(self.today_ind)
 
     def buy_today(self):

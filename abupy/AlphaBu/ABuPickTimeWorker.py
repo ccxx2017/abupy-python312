@@ -209,7 +209,6 @@ class AbuPickTimeWorker(AbuPickTimeWorkBase):
         """
             根据交易数据，因子等输入数据，拟合择时
         """
-        print(f"DEBUG: ABuPickTimeWorker.fit called. kl_pd shape: {self.kl_pd.shape if self.kl_pd is not None else 'None'}")
         if g_natural_long_task:
             """如果要进行自然周，自然月择时任务，需要在kl_pd中添加自然周，自然月标记"""
             # 自然周: 每个周五进行标记

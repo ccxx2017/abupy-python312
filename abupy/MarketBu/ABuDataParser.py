@@ -128,12 +128,6 @@ class TXParser(object):
         :param sub_market: 子市场（交易所）类型
         :param json_dict: 请求返回的json数据
         """
-        print(f"DEBUG: TXParser json_dict keys: {json_dict.keys()}")
-        if 'data' in json_dict:
-            print(f"DEBUG: TXParser data type: {type(json_dict['data'])}")
-            if isinstance(json_dict['data'], list) and len(json_dict['data']) > 0:
-                 print(f"DEBUG: TXParser data[0]: {json_dict['data'][0]}")
-
         if json_dict['code'] == 0:
             if isinstance(json_dict['data'], list):
                 # If data is a list, use it directly

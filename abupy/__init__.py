@@ -19,11 +19,16 @@ from .TradeBu import *
 from .UmpBu import *
 from .MarketBu import *
 from .SimilarBu import *
-from .WidgetBu import *
 
 __all__ = ['AlphaBu', 'BetaBu', 'CheckBu', 'UmpBu', 'FactorSellBu', 'FactorSell', 'IndicatorBu', 'MarketBu', 'UtilBu',
            'SimilarBu', 'MetricsBu', 'SlippageBu', 'PickStockBu', 'CoreBu', 'TLineBu',
-           'MLBu', 'DLBu', 'TradeBu', 'WidgetBu']
+           'MLBu', 'DLBu', 'TradeBu']
+
+try:
+    from .WidgetBu import *
+    __all__.append('WidgetBu')
+except ImportError:
+    pass
 
 __version__ = '0.4.0'
 __author__ = '阿布'

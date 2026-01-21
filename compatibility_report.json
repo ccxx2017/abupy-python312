@@ -1,0 +1,2892 @@
+{
+  "summary": {
+    "total_issues": 306,
+    "high_priority": 20,
+    "medium_priority": 224,
+    "low_priority": 62
+  },
+  "issues_by_module": {
+    "ABuAlpha.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\AlphaBu\\ABuAlpha.py",
+        "line": 4,
+        "code": "F401",
+        "message": "`.ABuPickStockExecute.do_pick_stock_work` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\AlphaBu\\ABuAlpha.py",
+        "line": 6,
+        "code": "F401",
+        "message": "`.ABuPickTimeExecute.do_symbols_with_same_factors` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\AlphaBu\\ABuAlpha.py",
+        "line": 6,
+        "code": "F401",
+        "message": "`.ABuPickTimeExecute.do_symbols_with_diff_factors` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\AlphaBu\\ABuAlpha.py",
+        "line": 8,
+        "code": "F401",
+        "message": "`.ABuPickTimeWorker` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuBeta.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\BetaBu\\ABuBeta.py",
+        "line": 5,
+        "code": "F401",
+        "message": "`.ABuPositionBase` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\BetaBu\\ABuBeta.py",
+        "line": 7,
+        "code": "F401",
+        "message": "`.ABuAtrPosition` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\BetaBu\\ABuBeta.py",
+        "line": 9,
+        "code": "F401",
+        "message": "`.ABuKellyPosition` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuChecker.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 13,
+        "code": "F403",
+        "message": "`from ..CheckBu.ABuFuncUtil import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 14,
+        "code": "F403",
+        "message": "`from ..CheckBu.ABuChecks import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 21,
+        "code": "F405",
+        "message": "`ABCMeta` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 28,
+        "code": "F405",
+        "message": "`ABCMeta` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 38,
+        "code": "F405",
+        "message": "`CheckError` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 38,
+        "code": "F405",
+        "message": "`get_func_name` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 41,
+        "code": "F405",
+        "message": "`ABCMeta` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 72,
+        "code": "F405",
+        "message": "`type_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 72,
+        "code": "F405",
+        "message": "`type_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 86,
+        "code": "F405",
+        "message": "`bound_valid_and_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 87,
+        "code": "F405",
+        "message": "`bound_valid_and_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 106,
+        "code": "F405",
+        "message": "`get_arg_defaults` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 110,
+        "code": "F405",
+        "message": "`get_func_name` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 111,
+        "code": "F405",
+        "message": "`ArgNoDefault` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 113,
+        "code": "F405",
+        "message": "`CheckError` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 114,
+        "code": "F405",
+        "message": "`get_func_name` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 158,
+        "code": "F405",
+        "message": "`getargspec` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 163,
+        "code": "F405",
+        "message": "`CheckError` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 163,
+        "code": "F405",
+        "message": "`get_func_name` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 181,
+        "code": "F405",
+        "message": "`getargspec` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 185,
+        "code": "F405",
+        "message": "`CheckError` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 185,
+        "code": "F405",
+        "message": "`get_func_name` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 222,
+        "code": "F405",
+        "message": "`subset_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 222,
+        "code": "F405",
+        "message": "`subset_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 225,
+        "code": "F405",
+        "message": "`ABCMeta` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 250,
+        "code": "F405",
+        "message": "`type_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 267,
+        "code": "F405",
+        "message": "`bound_valid_and_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuChecker.py",
+        "line": 291,
+        "code": "F405",
+        "message": "`subset_check` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuProcessor.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuProcessor.py",
+        "line": 13,
+        "code": "F403",
+        "message": "`from ..CheckBu.ABuFuncUtil import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuProcessor.py",
+        "line": 36,
+        "code": "F405",
+        "message": "`check_bind` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuProcessor.py",
+        "line": 38,
+        "code": "F405",
+        "message": "`bind_partial` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CheckBu\\ABuProcessor.py",
+        "line": 104,
+        "code": "F523",
+        "message": "`.format` call has unused arguments at position(s): 1",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\CheckBu\\ABuProcessor.py",
+        "line": 104,
+        "code": "mypy",
+        "message": "Not all arguments converted during string formatting  [str-format]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuEnv.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuEnv.py",
+        "line": 56,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuEnv.py",
+        "line": 90,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuEnv.py",
+        "line": 134,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuEnv.py",
+        "line": 142,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuEnv.py",
+        "line": 387,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuEnv.py",
+        "line": 491,
+        "code": "F821",
+        "message": "Undefined name `reload`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\CoreBu\\ABuEnv.py",
+        "line": 37,
+        "code": "mypy",
+        "message": "Name \"__IPYTHON__\" is not defined  [name-defined]",
+        "priority": "High",
+        "category": "Runtime"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\CoreBu\\ABuEnv.py",
+        "line": 84,
+        "code": "mypy",
+        "message": "Module has no attribute \"warnings\"  [attr-defined]",
+        "priority": "High",
+        "category": "Compatibility"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\CoreBu\\ABuEnv.py",
+        "line": 85,
+        "code": "mypy",
+        "message": "Module has no attribute \"warnings\"  [attr-defined]",
+        "priority": "High",
+        "category": "Compatibility"
+      }
+    ],
+    "ABuFixes.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 10,
+        "code": "F401",
+        "message": "`functools` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 12,
+        "code": "F401",
+        "message": "`sys` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 50,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 50,
+        "code": "F401",
+        "message": "`inspect.signature` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 50,
+        "code": "F401",
+        "message": "`inspect.Parameter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 52,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 52,
+        "code": "F401",
+        "message": "`concurrent.futures.ThreadPoolExecutor` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 58,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 59,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 59,
+        "code": "F401",
+        "message": "`functools.reduce` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 82,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 82,
+        "code": "F401",
+        "message": "`functools.lru_cache` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 84,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 84,
+        "code": "F401",
+        "message": "`itertools.combinations_with_replacement` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 87,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 87,
+        "code": "F401",
+        "message": "`functools.partial` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 88,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 88,
+        "code": "F401",
+        "message": "`scipy.stats.rankdata` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 89,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 89,
+        "code": "F401",
+        "message": "`sklearn.model_selection.KFold` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 89,
+        "code": "F401",
+        "message": "`sklearn.model_selection.learning_curve` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 89,
+        "code": "F401",
+        "message": "`sklearn.model_selection.GridSearchCV` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 89,
+        "code": "F401",
+        "message": "`sklearn.model_selection.train_test_split` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 89,
+        "code": "F401",
+        "message": "`sklearn.model_selection.cross_val_score` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 90,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 90,
+        "code": "F401",
+        "message": "`sklearn.mixture.GaussianMixture` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 91,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 111,
+        "code": "E402",
+        "message": "Module level import not at top of file",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuFixes.py",
+        "line": 111,
+        "code": "F401",
+        "message": "`urllib.parse.urlencode` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuPdHelper.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuPdHelper.py",
+        "line": 36,
+        "code": "F401",
+        "message": "`pandas.core.resample.DatetimeIndexResampler` imported but unused; consider using `importlib.util.find_spec` to test for availability",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuPdHelper.py",
+        "line": 43,
+        "code": "F401",
+        "message": "`pandas.core.window.EWM` imported but unused; consider using `importlib.util.find_spec` to test for availability",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuPdHelper.py",
+        "line": 48,
+        "code": "F401",
+        "message": "`pandas.core.window.ewm.ExponentialMovingWindow` imported but unused; consider using `importlib.util.find_spec` to test for availability",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuPdHelper.py",
+        "line": 55,
+        "code": "F401",
+        "message": "`pandas.core.window.Rolling` imported but unused; consider using `importlib.util.find_spec` to test for availability",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\ABuPdHelper.py",
+        "line": 62,
+        "code": "F401",
+        "message": "`pandas.core.window.Expanding` imported but unused; consider using `importlib.util.find_spec` to test for availability",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "__init__.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 4,
+        "code": "F403",
+        "message": "`from .ABuFixes import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 5,
+        "code": "F403",
+        "message": "`from .ABuPdHelper import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 31,
+        "code": "F405",
+        "message": "`train_test_split` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 32,
+        "code": "F405",
+        "message": "`KFold` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 33,
+        "code": "F405",
+        "message": "`learning_curve` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 34,
+        "code": "F405",
+        "message": "`cross_val_score` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 35,
+        "code": "F405",
+        "message": "`GridSearchCV` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 37,
+        "code": "F405",
+        "message": "`signature` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 38,
+        "code": "F405",
+        "message": "`Parameter` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 40,
+        "code": "F405",
+        "message": "`ThreadPoolExecutor` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 42,
+        "code": "F405",
+        "message": "`xrange` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 44,
+        "code": "F405",
+        "message": "`reduce` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 47,
+        "code": "F405",
+        "message": "`pickle` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 48,
+        "code": "F405",
+        "message": "`Pickler` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 49,
+        "code": "F405",
+        "message": "`Unpickler` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 50,
+        "code": "F405",
+        "message": "`partial` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 52,
+        "code": "F405",
+        "message": "`pd_rolling_mean` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 53,
+        "code": "F405",
+        "message": "`pd_rolling_std` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 54,
+        "code": "F405",
+        "message": "`pd_rolling_var` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 55,
+        "code": "F405",
+        "message": "`pd_rolling_median` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 56,
+        "code": "F405",
+        "message": "`pd_rolling_max` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 57,
+        "code": "F405",
+        "message": "`pd_rolling_min` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 58,
+        "code": "F405",
+        "message": "`pd_rolling_corr` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 59,
+        "code": "F405",
+        "message": "`pd_rolling_cov` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 60,
+        "code": "F405",
+        "message": "`pd_rolling_sum` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 61,
+        "code": "F405",
+        "message": "`pd_rolling_kurt` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 62,
+        "code": "F405",
+        "message": "`pd_rolling_skew` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 64,
+        "code": "F405",
+        "message": "`pd_ewm_mean` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 65,
+        "code": "F405",
+        "message": "`pd_ewm_corr` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 66,
+        "code": "F405",
+        "message": "`pd_ewm_std` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 67,
+        "code": "F405",
+        "message": "`pd_ewm_cov` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 68,
+        "code": "F405",
+        "message": "`pd_ewm_var` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 70,
+        "code": "F405",
+        "message": "`pd_expanding_mean` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 71,
+        "code": "F405",
+        "message": "`pd_expanding_std` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 72,
+        "code": "F405",
+        "message": "`pd_expanding_var` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 73,
+        "code": "F405",
+        "message": "`pd_expanding_median` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 74,
+        "code": "F405",
+        "message": "`pd_expanding_max` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 75,
+        "code": "F405",
+        "message": "`pd_expanding_min` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 76,
+        "code": "F405",
+        "message": "`pd_expanding_corr` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 77,
+        "code": "F405",
+        "message": "`pd_expanding_cov` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 78,
+        "code": "F405",
+        "message": "`pd_expanding_sum` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 79,
+        "code": "F405",
+        "message": "`pd_expanding_kurt` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 80,
+        "code": "F405",
+        "message": "`pd_expanding_skew` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CoreBu\\__init__.py",
+        "line": 82,
+        "code": "F405",
+        "message": "`pd_resample` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MetricsBu\\__init__.py",
+        "line": 8,
+        "code": "F401",
+        "message": "`.ABuMetricsScore.AbuScoreTuple` imported but unused; consider removing, adding to `__all__`, or using a redundant alias",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 4,
+        "code": "F403",
+        "message": "`from .CoreBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 5,
+        "code": "F403",
+        "message": "`from .CheckBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 6,
+        "code": "F403",
+        "message": "`from .FactorSellBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 7,
+        "code": "F403",
+        "message": "`from .FactorBuyBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 8,
+        "code": "F403",
+        "message": "`from .AlphaBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 9,
+        "code": "F403",
+        "message": "`from .BetaBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 10,
+        "code": "F403",
+        "message": "`from .DLBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 11,
+        "code": "F403",
+        "message": "`from .IndicatorBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 12,
+        "code": "F403",
+        "message": "`from .MLBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 13,
+        "code": "F403",
+        "message": "`from .MetricsBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 14,
+        "code": "F403",
+        "message": "`from .PickStockBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 15,
+        "code": "F403",
+        "message": "`from .SlippageBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 16,
+        "code": "F403",
+        "message": "`from .UtilBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 17,
+        "code": "F403",
+        "message": "`from .TLineBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 18,
+        "code": "F403",
+        "message": "`from .TradeBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 19,
+        "code": "F403",
+        "message": "`from .UmpBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 20,
+        "code": "F403",
+        "message": "`from .MarketBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 21,
+        "code": "F403",
+        "message": "`from .SimilarBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`AlphaBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`BetaBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`CheckBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`UmpBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`FactorSellBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`FactorSell` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`IndicatorBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`MarketBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 23,
+        "code": "F405",
+        "message": "`UtilBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 24,
+        "code": "F405",
+        "message": "`SimilarBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 24,
+        "code": "F405",
+        "message": "`MetricsBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 24,
+        "code": "F405",
+        "message": "`SlippageBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 24,
+        "code": "F405",
+        "message": "`PickStockBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 24,
+        "code": "F405",
+        "message": "`CoreBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 24,
+        "code": "F405",
+        "message": "`TLineBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 25,
+        "code": "F405",
+        "message": "`MLBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 25,
+        "code": "F405",
+        "message": "`DLBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 25,
+        "code": "F405",
+        "message": "`TradeBu` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\__init__.py",
+        "line": 28,
+        "code": "F403",
+        "message": "`from .WidgetBu import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuXqCrawl.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CrawlBu\\ABuXqCrawl.py",
+        "line": 24,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.reduce` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CrawlBu\\ABuXqCrawl.py",
+        "line": 24,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.filter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuXqCrawlImp.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\CrawlBu\\ABuXqCrawlImp.py",
+        "line": 15,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.filter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuDL.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\DLBu\\ABuDL.py",
+        "line": 4,
+        "code": "F403",
+        "message": "`from .ABuDLImgStd import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\DLBu\\ABuDL.py",
+        "line": 6,
+        "code": "F403",
+        "message": "`from .ABuDLTVSplit import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "_version.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\ExtBu\\empyrical\\_version.py",
+        "line": 8,
+        "code": "F401",
+        "message": "`sys` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuFactorBuyBase.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\FactorBuyBu\\ABuFactorBuyBase.py",
+        "line": 125,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuFactorBuyDemo.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\FactorBuyBu\\ABuFactorBuyDemo.py",
+        "line": 253,
+        "code": "F821",
+        "message": "Undefined name `btc_ml`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\FactorBuyBu\\ABuFactorBuyDemo.py",
+        "line": 298,
+        "code": "F821",
+        "message": "Undefined name `btc_ml`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuFS.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\FactorSellBu\\ABuFS.py",
+        "line": 4,
+        "code": "F401",
+        "message": "`.ABuFactorCloseAtrNStop` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\FactorSellBu\\ABuFS.py",
+        "line": 6,
+        "code": "F401",
+        "message": "`.ABuFactorPreAtrNStop` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuNDMa.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\IndicatorBu\\ABuNDMa.py",
+        "line": 137,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuMLApi.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLApi.py",
+        "line": 4,
+        "code": "F403",
+        "message": "`from .ABuMLBinsCs import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLApi.py",
+        "line": 6,
+        "code": "F403",
+        "message": "`from .ABuMLExecute import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLApi.py",
+        "line": 8,
+        "code": "F403",
+        "message": "`from .ABuMLGrid import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLApi.py",
+        "line": 10,
+        "code": "F401",
+        "message": "`.ABuML.EMLFitType` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLApi.py",
+        "line": 12,
+        "code": "F401",
+        "message": "`.ABuMLPd.BtcBigWaveClf` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLApi.py",
+        "line": 12,
+        "code": "F401",
+        "message": "`.ABuMLPd.ClosePredict` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuMLExecute.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLExecute.py",
+        "line": 23,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.range` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLExecute.py",
+        "line": 567,
+        "code": "F523",
+        "message": "`.format` call has unused arguments at position(s): 0",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLExecute.py",
+        "line": 569,
+        "code": "F523",
+        "message": "`.format` call has unused arguments at position(s): 0",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\MLBu\\ABuMLExecute.py",
+        "line": 567,
+        "code": "mypy",
+        "message": "Not all arguments converted during string formatting  [str-format]",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\MLBu\\ABuMLExecute.py",
+        "line": 569,
+        "code": "mypy",
+        "message": "Not all arguments converted during string formatting  [str-format]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuMLGrid.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MLBu\\ABuMLGrid.py",
+        "line": 179,
+        "code": "F521",
+        "message": "`.format` call has invalid format string: Single '}' encountered in format string",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\MLBu\\ABuMLGrid.py",
+        "line": 179,
+        "code": "mypy",
+        "message": "Invalid conversion specifier in format string: unexpected }  [str-format]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuDataCache.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataCache.py",
+        "line": 19,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.xrange` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataCache.py",
+        "line": 206,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataCache.py",
+        "line": 214,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataCache.py",
+        "line": 236,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataCache.py",
+        "line": 239,
+        "code": "F841",
+        "message": "Local variable `e` is assigned to but never used",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\MarketBu\\ABuDataCache.py",
+        "line": 25,
+        "code": "mypy",
+        "message": "Name \"HDF5ExtError\" already defined (possibly by an import)  [no-redef]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuDataCheck.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataCheck.py",
+        "line": 35,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuDataFeed.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataFeed.py",
+        "line": 29,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.filter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataFeed.py",
+        "line": 57,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuDataSource.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuDataSource.py",
+        "line": 196,
+        "code": "F821",
+        "message": "Undefined name `pd`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\MarketBu\\ABuDataSource.py",
+        "line": 28,
+        "code": "mypy",
+        "message": "Name \"HDF5ExtError\" already defined (possibly by an import)  [no-redef]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuHkUnit.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuHkUnit.py",
+        "line": 58,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuHkUnit.py",
+        "line": 65,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuHkUnit.py",
+        "line": 88,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuMarket.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuMarket.py",
+        "line": 94,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuMarket.py",
+        "line": 254,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuMarket.py",
+        "line": 258,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuMarketDrawing.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuMarketDrawing.py",
+        "line": 267,
+        "code": "E741",
+        "message": "Ambiguous variable name: `l`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuMarketDrawing.py",
+        "line": 276,
+        "code": "E741",
+        "message": "Ambiguous variable name: `l`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuSymbolPd.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuSymbolPd.py",
+        "line": 147,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuSymbolStock.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MarketBu\\ABuSymbolStock.py",
+        "line": 375,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuGridHelper.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MetricsBu\\ABuGridHelper.py",
+        "line": 18,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.range` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuMetricsBase.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MetricsBu\\ABuMetricsBase.py",
+        "line": 503,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MetricsBu\\ABuMetricsBase.py",
+        "line": 504,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\MetricsBu\\ABuMetricsBase.py",
+        "line": 505,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuPickStock.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\PickStockBu\\ABuPickStock.py",
+        "line": 4,
+        "code": "F401",
+        "message": "`.ABuPickSimilarNTop` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\PickStockBu\\ABuPickStock.py",
+        "line": 6,
+        "code": "F401",
+        "message": "`.ABuPickStockBase.reversed_result` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuPickStockDemo.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\PickStockBu\\ABuPickStockDemo.py",
+        "line": 70,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuSimilar.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\SimilarBu\\ABuSimilar.py",
+        "line": 32,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.xrange` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuSlippage.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\SlippageBu\\ABuSlippage.py",
+        "line": 5,
+        "code": "F401",
+        "message": "`.ABuSlippageBuyBase` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\SlippageBu\\ABuSlippage.py",
+        "line": 7,
+        "code": "F401",
+        "message": "`.ABuSlippageSellBase` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\SlippageBu\\ABuSlippage.py",
+        "line": 9,
+        "code": "F401",
+        "message": "`.ABuSlippageBuyMean` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuTLExecute.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLExecute.py",
+        "line": 279,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLExecute.py",
+        "line": 282,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLExecute.py",
+        "line": 286,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLExecute.py",
+        "line": 332,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLExecute.py",
+        "line": 608,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLExecute.py",
+        "line": 612,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuTLWave.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLWave.py",
+        "line": 172,
+        "code": "F841",
+        "message": "Local variable `ax2` is assigned to but never used",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuTLine.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TLineBu\\ABuTLine.py",
+        "line": 649,
+        "code": "F523",
+        "message": "`.format` call has unused arguments at position(s): 4",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\TLineBu\\ABuTLine.py",
+        "line": 649,
+        "code": "mypy",
+        "message": "Not all arguments converted during string formatting  [str-format]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuMLFeature.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TradeBu\\ABuMLFeature.py",
+        "line": 527,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuTradeDrawer.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\TradeBu\\ABuTradeDrawer.py",
+        "line": 92,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuUmp.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmp.py",
+        "line": 4,
+        "code": "F401",
+        "message": "`.ABuUmpEdgeBase` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmp.py",
+        "line": 6,
+        "code": "F401",
+        "message": "`.ABuUmpMainBase` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmp.py",
+        "line": 8,
+        "code": "F401",
+        "message": "`.ABuUmpManager` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmp.py",
+        "line": 10,
+        "code": "F401",
+        "message": "`.ABuUmpBase.ump_main_make_xy` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmp.py",
+        "line": 10,
+        "code": "F401",
+        "message": "`.ABuUmpBase.ump_edge_make_xy` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmp.py",
+        "line": 12,
+        "code": "F401",
+        "message": "`.ABuUmpEdgeBase.EEdgeType` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuUmpMainBase.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmpMainBase.py",
+        "line": 24,
+        "code": "F401",
+        "message": "`mpl_toolkits.mplot3d.Axes3D` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmpMainBase.py",
+        "line": 292,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuUmpManager.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmpManager.py",
+        "line": 302,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UmpBu\\ABuUmpManager.py",
+        "line": 327,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuDTUtil.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuDTUtil.py",
+        "line": 112,
+        "code": "F821",
+        "message": "Undefined name `six`",
+        "priority": "High",
+        "category": "Syntax/Runtime"
+      }
+    ],
+    "ABuDateUtil.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuDateUtil.py",
+        "line": 83,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\UtilBu\\ABuDateUtil.py",
+        "line": 20,
+        "code": "mypy",
+        "message": "Library stubs not installed for \"dateutil.relativedelta\"  [import-untyped]",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\UtilBu\\ABuDateUtil.py",
+        "line": 20,
+        "code": "mypy",
+        "message": "Hint: \"python3 -m pip install types-python-dateutil\"",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\UtilBu\\ABuDateUtil.py",
+        "line": 20,
+        "code": "mypy",
+        "message": "(or run \"mypy --install-types\" to install all missing stub packages)",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\UtilBu\\ABuDateUtil.py",
+        "line": 20,
+        "code": "mypy",
+        "message": "See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuDelegateUtil.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuDelegateUtil.py",
+        "line": 158,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuFileUtil.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuFileUtil.py",
+        "line": 19,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.as_bytes` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuPlatform.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuPlatform.py",
+        "line": 133,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuStatsUtil.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuStatsUtil.py",
+        "line": 10,
+        "code": "F401",
+        "message": "`collections.OrderedDict` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuStatsUtil.py",
+        "line": 110,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuStatsUtil.py",
+        "line": 112,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuStrUtil.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuStrUtil.py",
+        "line": 81,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuStrUtil.py",
+        "line": 100,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuStrUtil.py",
+        "line": 125,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuStrUtil.py",
+        "line": 135,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuWinUtil.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 7,
+        "code": "F403",
+        "message": "`from win32api import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 11,
+        "code": "F403",
+        "message": "`from winxpgui import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 14,
+        "code": "F403",
+        "message": "`from win32gui import *` used; unable to detect undefined names",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 94,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 177,
+        "code": "F405",
+        "message": "`WNDCLASS` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 178,
+        "code": "F405",
+        "message": "`GetModuleHandle` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 181,
+        "code": "F405",
+        "message": "`RegisterClass` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 184,
+        "code": "F405",
+        "message": "`CreateWindow` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 187,
+        "code": "F405",
+        "message": "`UpdateWindow` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 192,
+        "code": "F405",
+        "message": "`LoadImage` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 193,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 194,
+        "code": "F405",
+        "message": "`LoadIcon` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 195,
+        "code": "F405",
+        "message": "`NIF_ICON` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 195,
+        "code": "F405",
+        "message": "`NIF_MESSAGE` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 195,
+        "code": "F405",
+        "message": "`NIF_TIP` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 197,
+        "code": "F405",
+        "message": "`Shell_NotifyIcon` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 197,
+        "code": "F405",
+        "message": "`NIM_ADD` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 200,
+        "code": "F405",
+        "message": "`DestroyWindow` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 207,
+        "code": "F405",
+        "message": "`NIF_INFO` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 209,
+        "code": "F405",
+        "message": "`NIIF_INFO` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 215,
+        "code": "F405",
+        "message": "`NIM_MODIFY` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 219,
+        "code": "F405",
+        "message": "`Shell_NotifyIcon` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 219,
+        "code": "F405",
+        "message": "`NIM_DELETE` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\UtilBu\\ABuWinUtil.py",
+        "line": 221,
+        "code": "F405",
+        "message": "`PostQuitMessage` may be undefined, or defined from star imports",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuWGBRun.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGBRun.py",
+        "line": 25,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.filter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuWGBase.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGBase.py",
+        "line": 33,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGBase.py",
+        "line": 36,
+        "code": "E722",
+        "message": "Do not use bare `except`",
+        "priority": "Low",
+        "category": "Style"
+      },
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGBase.py",
+        "line": 110,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuWGCrossVal.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGCrossVal.py",
+        "line": 14,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.filter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuWGGridSearch.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGGridSearch.py",
+        "line": 16,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.filter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuWGSFBase.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGSFBase.py",
+        "line": 119,
+        "code": "F841",
+        "message": "Local variable `factors_grid` is assigned to but never used",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuWGStockInfo.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGStockInfo.py",
+        "line": 106,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuWGToolBase.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGToolBase.py",
+        "line": 137,
+        "code": "E731",
+        "message": "Do not assign a `lambda` expression, use a `def`",
+        "priority": "Low",
+        "category": "Style"
+      }
+    ],
+    "ABuWGUmp.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGUmp.py",
+        "line": 16,
+        "code": "F401",
+        "message": "`..CoreBu.ABuFixes.filter` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "ABuWGUpdate.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\WidgetBu\\ABuWGUpdate.py",
+        "line": 15,
+        "code": "F401",
+        "message": "`..UtilBu.ABuProgress` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      }
+    ],
+    "print_source_structure.py": [
+      {
+        "tool": "ruff",
+        "file": "D:\\智能投顾\\量化相关\\abupy-python312\\abupy\\print_source_structure.py",
+        "line": 10,
+        "code": "F401",
+        "message": "`os` imported but unused",
+        "priority": "Medium",
+        "category": "Import"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\print_source_structure.py",
+        "line": 81,
+        "code": "mypy",
+        "message": "Incompatible default for argument \"extensions\" (default has type \"None\", argument has type \"set[str]\")  [assignment]",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\print_source_structure.py",
+        "line": 81,
+        "code": "mypy",
+        "message": "PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\print_source_structure.py",
+        "line": 81,
+        "code": "mypy",
+        "message": "Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\print_source_structure.py",
+        "line": 82,
+        "code": "mypy",
+        "message": "Incompatible default for argument \"target_dirs\" (default has type \"None\", argument has type \"list[str]\")  [assignment]",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\print_source_structure.py",
+        "line": 82,
+        "code": "mypy",
+        "message": "PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True",
+        "priority": "Medium",
+        "category": "Type"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\print_source_structure.py",
+        "line": 82,
+        "code": "mypy",
+        "message": "Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuFuncUtil.py": [
+      {
+        "tool": "mypy",
+        "file": "abupy\\CheckBu\\ABuFuncUtil.py",
+        "line": 19,
+        "code": "mypy",
+        "message": "Module \"inspect\" has no attribute \"getargspec\"  [attr-defined]",
+        "priority": "High",
+        "category": "Compatibility"
+      },
+      {
+        "tool": "mypy",
+        "file": "abupy\\CheckBu\\ABuFuncUtil.py",
+        "line": 19,
+        "code": "mypy",
+        "message": "Name \"getargspec\" already defined (possibly by an import)  [no-redef]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuParallel.py": [
+      {
+        "tool": "mypy",
+        "file": "abupy\\CoreBu\\ABuParallel.py",
+        "line": 58,
+        "code": "mypy",
+        "message": "Name \"Parallel\" already defined (possibly by an import)  [no-redef]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuNetWork.py": [
+      {
+        "tool": "mypy",
+        "file": "abupy\\MarketBu\\ABuNetWork.py",
+        "line": 25,
+        "code": "mypy",
+        "message": "Name \"lru_cache\" already defined (possibly by an import)  [no-redef]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ],
+    "ABuProgress.py": [
+      {
+        "tool": "mypy",
+        "file": "abupy\\UtilBu\\ABuProgress.py",
+        "line": 92,
+        "code": "mypy",
+        "message": "Need type annotation for \"ui_progress_dict\" (hint: \"ui_progress_dict: dict[<type>, <type>] = ...\")  [var-annotated]",
+        "priority": "Medium",
+        "category": "Type"
+      }
+    ]
+  }
+}

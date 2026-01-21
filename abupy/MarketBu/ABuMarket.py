@@ -251,7 +251,7 @@ def query_symbol_market(target_symbol):
         symbol_obj = None
     elif isinstance(target_symbol, Symbol):
         symbol_obj = target_symbol
-    elif isinstance(target_symbol, six.string_types):
+    elif isinstance(target_symbol, str):
         try:
             # 如果字符串通过code_to_symbol转换为Symbol对象类型
             symbol_obj = code_to_symbol(target_symbol)

@@ -134,7 +134,7 @@ def plot_ma(prices, kl_index, time_period, from_calc=EMACalcType.E_MA_MA,
     :return:
     """
     # TODO Iterable和six.string_types的判断抽出来放在一个模块，做为Iterable的判断来使用
-    if not isinstance(time_period, Iterable) or isinstance(time_period, six.string_types):
+    if not isinstance(time_period, Iterable) or isinstance(time_period, str):
         raise TypeError('MA CALC time_period MUST PASS Iterable!!!')
 
     calc_type_func = calc_ma

@@ -185,12 +185,21 @@ def _make_symbols_cg_df(symbols, benchmark):
     panel = ABuSymbolPd.make_kl_df(symbols, data_mode=EMarketDataSplitMode.E_DATA_SPLIT_UNDO, benchmark=benchmark,
                                    show_progress=True)
 
-    if panel is None or panel.empty:
+    if panel is None or len(panel) == 0:
         logging.info('pid {} panel is None'.format(os.getpid()))
         return None
-    # 转换panel轴方向，即可方便获取所有金融时间数据的某一个列
-    panel = panel.swapaxes('items', 'minor')
-    net_cg_df = panel['p_change'].fillna(value=0)
+    
+    # 替代原有的pd.Panel操作
+    # panel is dict {symbol: df}
+    # 我们需要提取每个df的p_change列，组合成一个新的DataFrame，columns为symbol，index为日期
+    
+    data = {}
+    for symbol, df in panel.items():
+        if df is not None and 'p_change' in df.columns:
+            data[symbol] = df['p_change']
+            
+    net_cg_df = pd.DataFrame(data).fillna(value=0)
+    
     """
         转轴后直接获取p_change，即所有金融时间序列涨跌幅度pd.DataFrame对象，形如下所示：
                     usF	    usFCAU	usGM	usHMC	usTM	usTSLA	usTTM
